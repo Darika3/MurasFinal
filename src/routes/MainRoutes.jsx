@@ -12,6 +12,7 @@ import ProductFood from "../components/Products/Food";
 import Culture from "../components/Culture/Culture";
 import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
+import Auth from "../components/Auth/Auth";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -27,6 +28,7 @@ const MainRoutes = () => {
     { link: "/tours", element: <Tours />, id: 10 },
     { link: "/cart", element: <Cart />, id: 11 },
     { link: "/admin", element: <AddProduct />, id: 12 },
+    { link: "/authtor", element: <Auth/>, id: 12 },
   ];
   return (
     <>
