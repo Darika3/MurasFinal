@@ -1,0 +1,327 @@
+.culture_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow-x: hidden;
+}
+
+.backImage-people1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    background-color: #435558;
+}
+
+
+.culture__item-video {
+    width: 100%
+}
+
+#item-video1 {
+    width: 26%;
+    position: relative;
+    top: 380px;
+    left: 6%;
+}
+
+#item-video2 {
+    width: 26%;
+    position: relative;
+    top: 126px;
+    left: 10%;
+}
+
+#item-video3 {
+    width: 26%;
+    position: relative;
+    top: 480px;
+    left: 18%;
+}
+
+#item-video4 {
+    width: 26%;
+    position: relative;
+    top: 500px;
+    left: 26%;
+}
+
+#item-video5 {
+    width: 26%;
+    position: relative;
+    top: 690px;
+    left: 35%;
+}
+.culture__vector-img{
+    position: absolute;
+}
+
+#vector-img1{
+    width: 220px;
+    height: 165px;
+    position: absolute;
+    top: 200px;
+    left: 290px;
+}
+#vector-img2{
+    width: 250px;
+    height: 220px;
+    position: absolute;
+    top: 230px;
+    left: 900px;
+}
+#vector-img3{
+    width: 310px;
+    height: 120px;
+    position: absolute;
+    top: 590px;
+    left: 690px;
+}
+#vector-img4{
+    width: 270px;
+    height: 100px;
+    position: absolute;
+    top: 800px;
+    left: 760px;
+}
+/* !Animation */
+#gifRunMan1{
+    position: absolute;
+    top: 260px;
+    left: 230px;
+    height: 100px;
+    animation: runMen 3s ease-in-out 146s forwards;
+    background-color: inherit ;
+}
+@keyframes runMen{
+    0%{
+        margin-top: 0;
+    }
+    100%{
+        margin-top: -170px;
+        margin-left: 290px
+    }
+}
+#gifRunMan2{  position: absolute;
+    top: 130px;
+    left: 810px;                          
+    height: 100px;
+    background-color: inherit ;
+    animation: runMen2 3s ease-in-out 283s  forwards;
+}
+    @keyframes runMen2{
+        0%{
+            margin-top: 0;
+        }
+        25%{
+            /* margin-top: 0; */
+            margin-left: 170px;
+        }
+        50%{
+            margin-left: 290px;
+
+        }
+        100%{
+            margin-top: 320px;
+            margin-left: 490px
+        }
+    }
+#gifRunMan3{
+    position: absolute;
+    top: 540px;
+    left: 1055px;
+    height: 100px;
+    background-color: inherit;
+    animation: runMen3 3s ease-in-out 486s  forwards;
+}
+@keyframes runMen3{
+    0%{
+        margin-top: 0;
+    }
+    25%{
+       margin-top: 30px;
+        margin-left: -150px;
+    }
+    100%{
+        margin-top: 140px;
+        margin-left: -380px
+    }
+}
+#gifRunMan4{  position: absolute;
+    top: 770px;
+    left: 690px;
+    height: 100px;
+    background-color: inherit ;
+    animation: runMen4 5s ease-in-out 60s  forwards;
+}
+@keyframes runMen4{
+    0%{
+        margin-top: 0;
+    }
+    25%{
+       margin-top: 20px;
+        margin-left: 150px;
+    }
+    100%{
+        margin-top: 100px;
+        margin-left: 280px
+    }
+}
+
+/* ! Adapt */
+
+@media (max-width: 1410px) {
+    .runMan{
+        display: none;
+    }
+    .culture__vector-img{
+        display: none;
+    }
+}
+@media (max-width:1024px) {
+    .runMan{
+        display: none;
+    }
+    .culture_container {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .backImage-people1 {
+        height: 100%;
+    }
+    .culture__vector-img{
+        display: none;
+    }
+    
+    #item-video1 {
+        width: 30%;
+        position: relative;
+        top: 180px;
+        left: 40px;
+    }
+    
+    #item-video2 {
+        width: 30%;
+        position: relative;
+        top: 100px;
+        left: 150px;
+    }
+    
+    #item-video3 {
+        width: 30%;
+        position: relative;
+        top: 310px;
+        left: 30px;
+    }
+    
+    #item-video4 {
+        width: 30%;
+        position: relative;
+        top: 220px;
+        left: 210px;
+    }
+        #item-video5 {
+            display: none;} 
+}
+@media (max-width:768px) {
+    .culture_container {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .backImage-people1 {
+        height: 100%;
+    }
+    
+    #item-video1 {
+        width: 33%;
+        position: relative;
+        top: 110px;
+        left: 80px;
+    }
+    
+    #item-video2 {
+        width: 33%;
+        position: relative;
+        top: 110px;
+       left: 170px;
+    }
+    
+    #item-video3 {
+        width: 33%;
+        position: relative;
+        top: 270px;
+       left: -240px;
+    }
+    
+    #item-video4 {
+        width: 33%;
+        position: relative;
+        top: 280px;
+        left: 80px;
+    }
+    
+    #item-video5 {
+        display: inline;
+        width: 33%;
+        position: relative;
+        top: 280px;
+        left: 170px;
+    }
+    
+}
+
+@media (max-width:476px) {
+    .culture_container {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .backImage-people1 {
+        height: 100%;
+    }
+   
+    .culture__item-video{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .item-video{
+        display: flex;
+        justify-content: center;
+        /* margin: 0 auto; */
+    }
+    #item-video1 {
+        width: 45%;
+        position: relative;
+        top: 110px;
+        left: 10px;
+    }
+    
+    #item-video2 {
+        width: 45%;
+        position: relative;
+        top: 235px;
+       left: 0 ;
+    }
+    
+    #item-video3 {
+        width: 45%;
+        position: relative;
+        top: 250px;
+        left: 10PX;
+    }
+    
+    #item-video4 {
+        width: 45%;
+        position: relative;
+        top: 340px;
+        left: 20px;
+    }
+    
+    #item-video5 {
+       display: none;
+    }
+}

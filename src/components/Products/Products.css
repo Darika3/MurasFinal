@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+.productsCategories {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.foodCategory {
+  width: 33%;
+  height: 100vh;
+  background-image: url("../Products/assetsProducts/traditionalFood.jpg");
+  background-size: cover;
+}
+.clothesCategory {
+  width: 34%;
+  height: 100vh;
+  background-image: url("../Products/assetsProducts/traditionalClothes.jpg");
+  background-size: cover;
+}
+.souvenirsCategory {
+  width: 33%;
+  height: 100vh;
+  background-image: url("../Products/assetsProducts/traditionalSouvenirs.jpg");
+  background-size: cover;
+}
+.productsCategory {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.categoryBtn {
+  width: 78.125%;
+  height: 9.25%;
+  margin-bottom: 7%;
+  border: 2px solid white;
+  border-radius: 50px;
+  background-color: transparent;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 39px;
+
+  color: #ffffff;
+}
+#sideBarIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 216px;
+  margin-left: -40px;
+  align-self: center;
+}
+.socialIcons {
+  width: 30px;
+  height: 30px;
+}
+
+/* todo Clothes  */
+#clothContainerMain {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 auto;
+  align-items: center;
+  background-color: #3c2716;
+}
+#clothMainLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+#clothMainLeftParag {
+  text-align: center;
+  width: 70%;
+  font-family: "Inter";
+
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 29px;
+
+  color: #ffffff;
+}
+#clothMainRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  height: 100vh;
+}
+#clothMainRightParag {
+  text-align: center;
+  width: 70%;
+  font-family: "Inter";
+  margin: 3em 0;
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 29px;
+  color: #ffffff;
+}
+#clothMainImage {
+  width: 100%;
+}
+#clothMainRightButton {
+  width: 250px;
+  height: 80px;
+  background: #675b3d;
+  border-radius: 50px;
+  border: none;
+  font-family: "Inter";
+
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 29px;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+/* todo Souvenirs */
+#souvenirsMainContainer {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 auto;
+  align-items: center;
+  background-color: #3c2716;
+}
+#souvenirsMainLeft {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 70%;
+}
+#souvenirsMainLeftHeader {
+  font-family: "Inter";
+
+  font-weight: 400;
+  font-size: 2.5em;
+  line-height: 58px;
+  text-align: center;
+  width: 85%;
+
+  color: #ffffff;
+}
+#souvenirsMainLeftParag {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 24px;
+  text-align: center;
+  margin: 3em 0;
+  color: #ffffff;
+  width: 85%;
+}
+#souvenirsMainLeftButton {
+  width: 300px;
+  height: 84px;
+  border: none;
+  background: #675b3d;
+  border-radius: 50px;
+  font-family: "Inter";
+
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 29px;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  .productsCategories {
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  .productsCategory {
+    width: 100%;
+    height: 864px;
+  }
+  .socialIcons {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .categoryBtn {
+    font-size: 1.2em;
+    line-height: 39px;
+  }
+}
