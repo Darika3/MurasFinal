@@ -83,9 +83,7 @@ const ProductFood = () => {
         <div>
           <h1>PRODUCT LIST</h1>
           {products.map((item) =>
-            item.category === "Meal" ||
-            item.category === "Snacks" ||
-            item.category === "Drinks" ? (
+         item.category === "food"? (
               <ProductCard key={item.id} item={item} />
             ) : null
           )}

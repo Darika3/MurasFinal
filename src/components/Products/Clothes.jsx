@@ -105,7 +105,7 @@ const Clothes = () => {
         </div>
         <div>
           <h1>PRODUCT LIST</h1>
-          {currentData.map((item) =>
+          {products.map((item) =>
             item.category === "Outerwear" ||
             item.category === "Headdress" ||
             item.category === "Shoes" ? (

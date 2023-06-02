@@ -37,7 +37,7 @@ const pages = [
 const Navbar = () => {
   const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
-  const { handleLogout, currentUser, checkAuth, user } = useAuth();
+  const { handleLogout, user:{email}  } = useAuth();
 
   useEffect(() => {
     if (localStorage.getItem("tokens")) {
@@ -137,7 +137,7 @@ const Navbar = () => {
             src={shopIcon}
             alt="shopIcon"
           />
-          {currentUser ? (
+          {email ? (
             <img
               onMouseMove={handleMouseOpen}
               onClick={handleMouseClose}
@@ -155,12 +155,12 @@ const Navbar = () => {
         </div>
       </div>
       {openModal && (
-        <div className="modal-profile">
-          <p onClick={() => navigate("/authtor")}>Register</p>
-          <p onClick={() => navigate("/login")}>Login</p>
-          <p onClick={handleLogout}>Logout</p>
+        <div className="modal-profile" >
+          <p style={{paddingBottom:"3px"}} onClick={() => navigate("/authtor")}>SignIn</p>
+          <p  style={{paddingBottom:"5px"}}onClick={handleLogout} >Logout</p>
           <hr></hr>
-          {currentUser ? currentUser : null}
+          
+          {email ? email : null}
         </div>
       )}
       <div>
