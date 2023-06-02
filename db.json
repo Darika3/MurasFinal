@@ -110,6 +110,18 @@
       "ingredients": "Мээрим эже",
       "preparationTime": "72е82",
       "id": 9
+    },
+    {
+      "name": "Chapan",
+      "description": "Krutoi",
+      "price": 123456,
+      "image": "https://i.etsystatic.com/17561082/r/il/d59cc4/2009704196/il_794xN.2009704196_6yz8.jpg",
+      "type": "Outerwear",
+      "category": "clothes",
+      "distance": "",
+      "ingredients": "",
+      "preparationTime": "",
+      "id": 10
     }
   ]
 }

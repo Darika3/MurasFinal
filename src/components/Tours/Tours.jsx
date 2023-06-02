@@ -8,7 +8,9 @@ import instagram from "../../assets/image/inst.svg";
 import telegram from "../../assets/image/telegram.svg";
 import facebook from "../../assets/image/facebook.svg";
 import WhatsApp from "../../assets/image/Wp.svg";
+import { useNavigate } from "react-router-dom";
 const Tours = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="tours_container">
@@ -28,7 +30,10 @@ const Tours = () => {
           </a>
         </div>
         <div className="tours-filter">
-          <div className="trekking__item-tours">
+          <div
+            onClick={() => navigate("/trekking")}
+            className="trekking__item-tours"
+          >
             <img src={Trekking} alt="Trekking" />
             <p className="text">Trekking Tours</p>
           </div>
