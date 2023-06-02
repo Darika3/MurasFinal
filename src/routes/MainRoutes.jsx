@@ -20,12 +20,13 @@ const MainRoutes = () => {
     { link: "/products", element: <Products />, id: 3 },
     { link: "/clothes", element: <Clothes />, id: 4 },
     { link: "/souvenirs", element: <Souvenirs />, id: 5 },
+
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },
     { link: "/cart", element: <Cart />, id: 11 },
     { link: "/admin", element: <AddProduct />, id: 12 },
-    { link: "/authtor", element: <Auth/>, id: 12 },
+    { link: "/authtor", element: <Auth />, id: 12 },
   ];
   return (
     <>
