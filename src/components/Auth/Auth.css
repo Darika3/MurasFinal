@@ -1,18 +1,23 @@
+* {
+  color: white;
+}
 .authBox {
-    background-image: url("https://mobimg.b-cdn.net/v3/fetch/9e/9e205f360aa74682517af8a5e5eadfa6.jpeg");
-    height: 100vh;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    /* align-items: center; */
-  }
-  .cont {
-    /* color:white; */
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  background-image: url("https://vsegda-pomnim.com/uploads/posts/2022-04/1650890391_64-vsegda-pomnim-com-p-gornii-kirgizstan-foto-69.jpg");
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
+}
+.cont {
+  color: white;
+  width: 40%;
+  height: 70%;
+  display: flex;
+  margin-top: 10%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.304);
+}

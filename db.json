@@ -49,21 +49,28 @@
       "id": 8
     },
     {
-      "name": "dfghjkl",
-      "description": "qwertyui",
-      "price": 345678,
-      "image": "https://avatars.mds.yandex.net/i?id=c13639da6854ac3a8ead03d7093e77858b32deb7-8497298-images-thumbs&n=13",
-      "type": "Headdress",
+      "name": "karabaeva Meerim",
+      "description": "вкусно",
+      "price": 262872,
+      "image": "https://avatars.mds.yandex.net/i?id=ffc9a5ea1f196801b1eb15937a1d243f9a5cb198-9230228-images-thumbs&n=13",
+      "type": "Meal",
+      "category": "food",
+      "distance": "",
+      "ingredients": "Мээрим эже",
+      "preparationTime": "72е82",
+      "id": 9
+    },
+    {
+      "name": "Chapan",
+      "description": "Krutoi",
+      "price": 123456,
+      "image": "https://i.etsystatic.com/17561082/r/il/d59cc4/2009704196/il_794xN.2009704196_6yz8.jpg",
+      "type": "Outerwear",
       "category": "clothes",
       "distance": "",
       "ingredients": "",
       "preparationTime": "",
-      "altitude": "",
-      "season": "",
-      "route": "",
-      "time": "",
-      "raiting": "",
-      "id": 9
+      "id": 10
     }
   ]
 }

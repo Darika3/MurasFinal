@@ -12,6 +12,7 @@ import Culture from "../components/Culture/Culture";
 import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
+import TrekkingTours from "../components/Tours/TrekkingTours";
 import EditProduct from "../components/Products/Crud/EditProduct";
 
 const MainRoutes = () => {
@@ -21,13 +22,17 @@ const MainRoutes = () => {
     { link: "/products", element: <Products />, id: 3 },
     { link: "/clothes", element: <Clothes />, id: 4 },
     { link: "/souvenirs", element: <Souvenirs />, id: 5 },
+
+    { link: "/trekking", element: <TrekkingTours />, id: 6 },
+    // { link: "/trekking", element: <TrekkingTours />, id: 7 },
+    // { link: "/trekking", element: <TrekkingTours />, id: 8 },
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },
     { link: "/cart", element: <Cart />, id: 11 },
     { link: "/admin", element: <AddProduct />, id: 12 },
-    { link: "/edit/:id", element: <EditProduct/>, id: 13 },
-    { link: "/authtor", element: <Auth/>, id: 14 },
+    { link: "/authtor", element: <Auth />, id: 13 },
+    { link: "/edit/:id", element: <EditProduct />, id: 14 },
   ];
   return (
     <>

@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import "./AddProduct.css";
 import Navbar from "../../Navbar/Navbar";
@@ -18,11 +16,11 @@ const AddProduct = () => {
     distance: "",
     ingredients: "",
     preparationTime: "",
+    raiting: 0,
     altitude: "",
-    season:"",
+    season: "",
     route: "",
     time: "",
-    raiting:"",
   });
 
   const navigate = useNavigate();
@@ -100,35 +98,36 @@ const AddProduct = () => {
                 placeholder="Total time"
                 name="time"
               />
-                <input
+              <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Season"
                 name="season"
               />
-                <input
+              <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Altitude"
                 name="altitude"
               />
-                <input
+              <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Distance"
                 name="distance"
               />
-               <input
+
+              <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Route"
                 name="route"
               />
-               <input
+              <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Raiting"
-                name="raitin"
+                name="raiting"
               />
             </>
           )}
@@ -213,17 +212,16 @@ const AddProduct = () => {
               />
             </>
           )}
-<select
-          style={{ color: "#A3B5BF" }}
-          onChange={handleInp}
-          name='type'
-          id="none"
-        >
-          {category === "All" && (
-            <>
-         
-              {/* <option>Choose type</option> */}
-              {/* <option>Headdress</option>
+          <select
+            style={{ color: "#A3B5BF" }}
+            onChange={handleInp}
+            name="type"
+            id="none"
+          >
+            {category === "All" && (
+              <>
+                {/* <option>Choose type</option> */}
+                {/* <option>Headdress</option>
               <option>Shoes</option>
               <option>Meal</option>
               <option>Drinks</option>
@@ -234,45 +232,45 @@ const AddProduct = () => {
               <option>Trekking Tours</option>
               <option>Multidays Tours</option>
               <option>Horse Tours</option> */}
-            </>
-          )}
-          {category === "clothes" && (
-            <>
-           <option>Choose type</option>
+              </>
+            )}
+            {category === "clothes" && (
+              <>
+                <option>Choose type</option>
 
-              <option>Outerwear</option>
-              <option>Headdress</option>
-              <option>Shoes</option>
-            </>
-          )}
-          {category === "food" && (
-            <>
-           <option>Choose type</option>
+                <option>Outerwear</option>
+                <option>Headdress</option>
+                <option>Shoes</option>
+              </>
+            )}
+            {category === "food" && (
+              <>
+                <option>Choose type</option>
 
-              <option>Meal</option>
-              <option>Drinks</option>
-              <option>Snacks</option>
-            </>
-          )}
-          {category === "souvenirs" && (
-            <>
-           <option>Choose type</option>
+                <option>Meal</option>
+                <option>Drinks</option>
+                <option>Snacks</option>
+              </>
+            )}
+            {category === "souvenirs" && (
+              <>
+                <option>Choose type</option>
 
-              <option>Jewellery</option>
-              <option>Instruments</option>
-              <option>other Souvenirs</option>
-            </>
-          )}
-          {category === "tours" && (
-            <>
-           <option>Choose type</option>
+                <option>Jewellery</option>
+                <option>Instruments</option>
+                <option>other Souvenirs</option>
+              </>
+            )}
+            {category === "tours" && (
+              <>
+                <option>Choose type</option>
 
-              <option>Trekking Tours</option>
-              <option>Multidays Tours</option>
-              <option>Horse Tours</option>
-            </>
-          )}
-        </select>
+                <option>Trekking Tours</option>
+                <option>Multidays Tours</option>
+                <option>Horse Tours</option>
+              </>
+            )}
+          </select>
           <input
             id="fileInp"
             onChange={handleInp}
