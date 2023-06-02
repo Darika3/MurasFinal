@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useAuth } from '../../context/AuthContextProvider';
-
+import "../Auth/Auth.css"
 
 
 function Copyright(props) {
@@ -47,7 +47,6 @@ export default function Auth() {
     setHasAccount,
 
     handleLogin,
-    handleLogout,
     handleSignUp,
 
   } = useAuth();
@@ -64,9 +63,11 @@ export default function Auth() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+    <div className='authBox'>
+      <div className="cont">
+    <ThemeProvider  theme={theme}>
+      <Container  component="main" maxWidth="xs">
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,
@@ -75,12 +76,12 @@ export default function Auth() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon/>
-          </Avatar>
-          {hasAccount ? ( <Typography component="h1" variant="h5">
+          {/* <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
+            <LockOutlinedIcon />
+          </Avatar> */}
+          {hasAccount ? ( <Typography sx={{fontSize: "32px"}} component="h1" variant="h5">
             Авторизация
-          </Typography>):( <Typography component="h1" variant="h5">
+          </Typography>):( <Typography sx={{fontSize: "32px"}} component="h1" variant="h5">
            Регистрация
           </Typography>)}
          
@@ -127,7 +128,7 @@ export default function Auth() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,}}
               onClick={()=> handleSignUp()}
             >
               Зарегистрироваться
@@ -138,6 +139,7 @@ export default function Auth() {
                   <Link
                     href="#"
                     variant="body2"
+                    sx={{color: "white"}}
                     onClick={() => setHasAccount(!hasAccount)}
                   >
                     {"Еще нет акккаунта? Зарегистрироваться"}
@@ -146,6 +148,7 @@ export default function Auth() {
                   <Link
                     href="#"
                     variant="body2"
+                    sx={{color: "white"}}
                     onClick={() => setHasAccount(!hasAccount)}
                   >
                     {"Уже есть аккаунт? Войти"}
@@ -158,5 +161,7 @@ export default function Auth() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    </div>
+    </div>
   );
 }

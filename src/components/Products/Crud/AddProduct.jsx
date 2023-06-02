@@ -1,39 +1,54 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { useProduct } from "../../../context/ProductContextProvider";
+
+
+import { useEffect, useState } from "react";
 import "./AddProduct.css";
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
+import { useProduct } from "../../../context/ProductContextProvider";
+
 const AddProduct = () => {
-  const navigate = useNavigate();
-  const { createProduct } = useProduct();
   const [category, setCategory] = useState("");
-  const [type, setType] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [product, setProduct] = useState({
+    name: "",
+    description: "",
+    price: 0,
+    image: "",
+    type: "",
+    category: category,
+    distance: "",
+    ingredients: "",
+    preparationTime: "",
+  });
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState(null);
+  const navigate = useNavigate();
+  const { addProduct } = useProduct();
 
-  // console.log(category);
-  // console.log(title);
+  const handleInp = (e) => {
+    if (e.target.name === "price") {
+      let obj = {
+        ...product,
+        [e.target.name]: Number(e.target.value),
+      };
+      setProduct(obj);
+    } else {
+      let obj = {
+        ...product,
+        [e.target.name]: e.target.value,
+      };
+      setProduct(obj);
+    }
+  };
 
-  function handleSave() {
-    const newProduct = new FormData();
-    newProduct.append("name", name);
-    newProduct.append("description", description);
-    newProduct.append("price", price);
-    newProduct.append("category", category);
-    newProduct.append("type", type);
-    newProduct.append("image", image);
-    newProduct.append("quantity", quantity);
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
 
-    createProduct(newProduct);
-    // if (category === "Meal" || category === "Snacks" || category === "Drinks") {
-    //   navigate("/food");
-    // }
-  }
+  useEffect(() => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      category: category,
+    }));
+  }, [category]);
 
   return (
     <>
@@ -43,51 +58,194 @@ const AddProduct = () => {
           <h1 style={{ marginBottom: "20px" }}>Add Product</h1>
           <select
             style={{ color: "#A3B5BF", textShadow: "1px 1px black" }}
-            defaultValue={""}
-            onChange={(e) => setCategory(e.target.value)}
+            name="category"
+            onChange={handleCategoryChange}
           >
-            <option>Outerwear</option>
-            <option>Headdress</option>
-            <option>Shoes</option>
-            <option>Meal</option>
-            <option>Drinks</option>
-            <option>Snacks</option>
-            <option>Jewellery</option>
-            <option>Instruments</option>
-            <option>other Souvenirs</option>
-            <option>Trekking Tours</option>
-            <option>Multidays Tours</option>
-            <option>Horse Tours</option>
+            <option value="All">Choose category</option>
+            <option value="food">Food</option>
+            <option value="clothes">Clothes</option>
+            <option value="souvenirs">Souvenirs</option>
+            <option value="tours">Tours</option>
           </select>
 
-          <input
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            placeholder="Title"
-          />
-          <input
-            onChange={(e) => setDescription(e.target.value)}
-            type="text"
-            placeholder="Description"
-          />
+          {category === "tours" && (
+            <>
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Title"
+                name="name"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Description"
+                name="description"
+              />
 
-          <input
-            type="number"
-            placeholder="Price"
-            onChange={(e) => setPrice(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Quantity"
-            onChange={(e) => setQuantity(e.target.value)}
-          />
+              <input
+                type="number"
+                placeholder="Price"
+                onChange={handleInp}
+                name="price"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Distance"
+                name="distance"
+              />
+            </>
+          )}
+          {category === "food" && (
+            <>
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Title"
+                name="name"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Description"
+                name="description"
+              />
+
+              <input
+                type="number"
+                placeholder="Price"
+                onChange={handleInp}
+                name="price"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Preparation Time"
+                name="preparationTime"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Ingredients"
+                name="ingredients"
+              />
+            </>
+          )}
+          {category === "clothes" && (
+            <>
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Title"
+                name="name"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Description"
+                name="description"
+              />
+
+              <input
+                type="number"
+                placeholder="Price"
+                onChange={handleInp}
+                name="price"
+              />
+            </>
+          )}
+          {category === "souvenirs" && (
+            <>
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Title"
+                name="name"
+              />
+              <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Description"
+                name="description"
+              />
+
+              <input
+                type="number"
+                placeholder="Price"
+                onChange={handleInp}
+                name="price"
+              />
+            </>
+          )}
+<select
+          style={{ color: "#A3B5BF" }}
+          onChange={handleInp}
+          name='type'
+          id="none"
+        >
+          {category === "All" && (
+            <>
+         
+              {/* <option>Choose type</option> */}
+              {/* <option>Headdress</option>
+              <option>Shoes</option>
+              <option>Meal</option>
+              <option>Drinks</option>
+              <option>Snacks</option>
+              <option>Jewellery</option>
+              <option>Instruments</option>
+              <option>other Souvenirs</option>
+              <option>Trekking Tours</option>
+              <option>Multidays Tours</option>
+              <option>Horse Tours</option> */}
+            </>
+          )}
+          {category === "clothes" && (
+            <>
+           <option>Choose type</option>
+
+              <option>Outerwear</option>
+              <option>Headdress</option>
+              <option>Shoes</option>
+            </>
+          )}
+          {category === "food" && (
+            <>
+           <option>Choose type</option>
+
+              <option>Meal</option>
+              <option>Drinks</option>
+              <option>Snacks</option>
+            </>
+          )}
+          {category === "souvenirs" && (
+            <>
+           <option>Choose type</option>
+
+              <option>Jewellery</option>
+              <option>Instruments</option>
+              <option>other Souvenirs</option>
+            </>
+          )}
+          {category === "tours" && (
+            <>
+           <option>Choose type</option>
+
+              <option>Trekking Tours</option>
+              <option>Multidays Tours</option>
+              <option>Horse Tours</option>
+            </>
+          )}
+        </select>
           <input
             id="fileInp"
-            onChange={(e) => setImage(e.target.files[0])}
-            type="file"
-            accept="image/*"
+            onChange={handleInp}
+            type="url"
+            placeholder="Picture"
+            name="image"
           />
-          <button onClick={handleSave}>Add Product</button>
+          <button onClick={() => addProduct(product)}>Add Product</button>
         </div>
       </div>
     </>
