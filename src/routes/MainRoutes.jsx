@@ -26,8 +26,8 @@ const MainRoutes = () => {
     { link: "/tours", element: <Tours />, id: 10 },
     { link: "/cart", element: <Cart />, id: 11 },
     { link: "/admin", element: <AddProduct />, id: 12 },
-    { link: "/edit/:id", element: <EditProduct/>, id: 12 },
-    { link: "/authtor", element: <Auth/>, id: 12 },
+    { link: "/edit/:id", element: <EditProduct/>, id: 13 },
+    { link: "/authtor", element: <Auth/>, id: 14 },
   ];
   return (
     <>

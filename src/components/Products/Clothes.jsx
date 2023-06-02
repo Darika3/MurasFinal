@@ -106,13 +106,16 @@ const Clothes = () => {
         <div>
           <h1>PRODUCT LIST</h1>
           {products.map((item) =>
-            item.category === "Outerwear" ||
-            item.category === "Headdress" ||
-            item.category === "Shoes" ? (
+            item.type === "Outerwear" ||
+            item.type === "Headdress" ||
+            item.type === "Shoes" ? (
               <ProductCard key={item.id} item={item} />
             ) : null
           )}
-          <Pagination
+          
+        </div>
+      </div>
+      <Pagination
             sx={{ display: "flex", justifyContent: "center" }}
             count={count}
             page={page}
@@ -120,8 +123,6 @@ const Clothes = () => {
             variant="outlined"
             color="secondary"
           />
-        </div>
-      </div>
     </div>
   );
 };

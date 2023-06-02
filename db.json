@@ -47,6 +47,23 @@
       "ingredients": "Мээрим эже",
       "preparationTime": "7438239832",
       "id": 8
+    },
+    {
+      "name": "dfghjkl",
+      "description": "qwertyui",
+      "price": 345678,
+      "image": "https://avatars.mds.yandex.net/i?id=c13639da6854ac3a8ead03d7093e77858b32deb7-8497298-images-thumbs&n=13",
+      "type": "Headdress",
+      "category": "clothes",
+      "distance": "",
+      "ingredients": "",
+      "preparationTime": "",
+      "altitude": "",
+      "season": "",
+      "route": "",
+      "time": "",
+      "raiting": "",
+      "id": 9
     }
   ]
 }
