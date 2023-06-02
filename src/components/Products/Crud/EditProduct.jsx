@@ -96,6 +96,36 @@ const {id} = useParams();
                 name="distance"
                 value={product.distance || ""}
               />
+               <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Total time"
+                name="time"
+              />
+                <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Season"
+                name="season"
+              />
+                <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Altitude"
+                name="altitude"
+              />
+               <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Route"
+                name="route"
+              />
+               <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Raiting"
+                name="raitin"
+              />
             </>
           )}
           {category === "food" && (
