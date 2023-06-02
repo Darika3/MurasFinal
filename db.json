@@ -1,66 +1,15 @@
 {
   "products": [
     {
-      "name": "",
-      "description": "ewfd",
-      "price": 2e+32,
-      "image": "",
-      "type": "",
-      "category": "",
-      "distance": "",
-      "ingredients": "",
-      "preparationTime": "",
-      "title": "df",
-      "": "https://yandex.ru/images/search?pos=5&from=tabbar&img_url=https%3A%2F%2Fscontent-hel3-1.cdninstagram.com%2Fv%2Ft51.2885-15%2Fe35%2F29716162_679019895822081_3360770939426963456_n.jpg%3F_nc_ht%3Dscontent-hel3-1.cdninstagram.com%26_nc_cat%3D109%26_nc_ohc%3DbK5PZLhY6AsAX-29p2C%26edm%3DAABBvjUBAAAA%26ccb%3D7-4%26oh%3D00_AT-OK4a29EwIAZAPcEiJD7GIiozKNEY8TNaEoJKrlIICzQ%26oe%3D61F35E58%26_nc_sid%3D83d603&text=picture&rpt=simage&lr=10309",
-      "id": 1
-    },
-    {
-      "name": "",
-      "description": "aszdxcfvgbnmk,l",
-      "price": 2332,
-      "image": "https://yandex.ru/images/search?pos=5&from=tabbar&img_url=https%3A%2F%2Fscontent-hel3-1.cdninstagram.com%2Fv%2Ft51.2885-15%2Fe35%2F29716162_679019895822081_3360770939426963456_n.jpg%3F_nc_ht%3Dscontent-hel3-1.cdninstagram.com%26_nc_cat%3D109%26_nc_ohc%3DbK5PZLhY6AsAX-29p2C%26edm%3DAABBvjUBAAAA%26ccb%3D7-4%26oh%3D00_AT-OK4a29EwIAZAPcEiJD7GIiozKNEY8TNaEoJKrlIICzQ%26oe%3D61F35E58%26_nc_sid%3D83d603&text=picture&rpt=simage&lr=10309",
-      "type": "",
-      "category": "",
-      "distance": "",
-      "ingredients": "",
-      "preparationTime": "",
-      "title": "dfcfd vd",
-      "": "Shoes",
-      "id": 2
-    },
-    {
-      "name": "dzgcgfj",
-      "description": "hvhmbmhb",
-      "price": 88888,
-      "image": "https://yandex.ru/images/search?pos=5&from=tabbar&img_url=https%3A%2F%2Fscontent-hel3-1.cdninstagram.com%2Fv%2Ft51.2885-15%2Fe35%2F29716162_679019895822081_3360770939426963456_n.jpg%3F_nc_ht%3Dscontent-hel3-1.cdninstagram.com%26_nc_cat%3D109%26_nc_ohc%3DbK5PZLhY6AsAX-29p2C%26edm%3DAABBvjUBAAAA%26ccb%3D7-4%26oh%3D00_AT-OK4a29EwIAZAPcEiJD7GIiozKNEY8TNaEoJKrlIICzQ%26oe%3D61F35E58%26_nc_sid%3D83d603&text=picture&rpt=simage&lr=10309",
-      "type": "Snacks",
-      "category": "",
-      "distance": "",
-      "ingredients": "dxgfchjkll",
-      "preparationTime": "234",
-      "id": 3
-    },
-    {
-      "name": "boorsok",
-      "description": "vkusno",
-      "price": 77777,
-      "image": "https://yandex.ru/images/search?pos=5&from=tabbar&img_url=https%3A%2F%2Fscontent-hel3-1.cdninstagram.com%2Fv%2Ft51.2885-15%2Fe35%2F29716162_679019895822081_3360770939426963456_n.jpg%3F_nc_ht%3Dscontent-hel3-1.cdninstagram.com%26_nc_cat%3D109%26_nc_ohc%3DbK5PZLhY6AsAX-29p2C%26edm%3DAABBvjUBAAAA%26ccb%3D7-4%26oh%3D00_AT-OK4a29EwIAZAPcEiJD7GIiozKNEY8TNaEoJKrlIICzQ%26oe%3D61F35E58%26_nc_sid%3D83d603&text=picture&rpt=simage&lr=10309",
-      "type": "Snacks",
-      "distance": "",
-      "ingredients": "un!",
-      "preparationTime": "32",
-      "id": 4
-    },
-    {
       "name": "plow",
       "description": "vkusno",
-      "price": 888888888888888900000,
+      "price": 123,
       "image": "https://avatars.mds.yandex.net/i?id=219ea1035c1663e20b6a5583a056c2b5a8439fcd-5386020-images-thumbs&n=13",
       "type": "",
       "category": "food",
       "distance": "",
       "ingredients": "morkovkaaaaaaaaaaaa",
-      "preparationTime": "123m",
+      "preparationTime": "234567890-",
       "id": 5
     },
     {
@@ -110,6 +59,18 @@
       "ingredients": "Мээрим эже",
       "preparationTime": "72е82",
       "id": 9
+    },
+    {
+      "name": "Chapan",
+      "description": "Krutoi",
+      "price": 123456,
+      "image": "https://i.etsystatic.com/17561082/r/il/d59cc4/2009704196/il_794xN.2009704196_6yz8.jpg",
+      "type": "Outerwear",
+      "category": "clothes",
+      "distance": "",
+      "ingredients": "",
+      "preparationTime": "",
+      "id": 10
     }
   ]
 }

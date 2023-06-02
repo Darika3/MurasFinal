@@ -80,14 +80,14 @@ const ProductFood = () => {
           <button>Drinks</button>
           <button>Snacks</button>
         </div>
-        <div>
-          <h1>PRODUCT LIST</h1>
+        <div style={{display: "flex" }}>
           {products.map((item) =>
          item.category === "food"? (
               <ProductCard key={item.id} item={item} />
             ) : null
           )}
-          <Pagination>
+        </div>
+        <Pagination>
             <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
             {getPagesCount().map((item) =>
               item === currentPage ? (
@@ -110,7 +110,6 @@ const ProductFood = () => {
 
             <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
           </Pagination>
-        </div>
       </div>
     </>
   );

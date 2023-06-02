@@ -1,173 +1,238 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-.tours_container{
-    position: absolute;
-    width: 100%;
-    height: 1950px;
-    /* display: flex; */
-    background-color: #435558;
-    z-index: -1;
-    overflow: hidden;
+.tours_container {
+  position: absolute;
+  width: 100%;
+  height: 1950px;
+  /* display: flex; */
+  background-color: #435558;
+  z-index: -1;
+  overflow: hidden;
 }
-.tours-filter{
-    display: flex;
-    width: 82%;
-    height: 65%;
-    z-index: 1;
+.tours-filter {
+  display: flex;
+  width: 82%;
+  height: 65%;
+  z-index: 1;
 }
 
-.trekking__item-tours{
-    position: absolute;
-    top: 8%;
-    left: 12%;
-    width: 45%;
-    height: 46%;
-    z-index: 1;
+.trekking__item-tours {
+  position: absolute;
+  top: 8%;
+  left: 12%;
+  width: 45%;
+  height: 46%;
+  z-index: 1;
 }
-.multidays__item-tours{
-    position: absolute;
-    top:34%;
-    left: 58%;
-    width: 45%;
-    height: 46%;
-    margin-bottom: 110px;
-    z-index: 1;
+.multidays__item-tours {
+  position: absolute;
+  top: 34%;
+  left: 58%;
+  width: 45%;
+  height: 46%;
+  margin-bottom: 110px;
+  z-index: 1;
 }
-.horse__item-tours{
-    position: absolute;
-    top:55%;
-    left: 12%;
-    width: 45%;
-    height: 46%;
-    z-index: 1;
+.horse__item-tours {
+  position: absolute;
+  top: 55%;
+  left: 12%;
+  width: 45%;
+  height: 46%;
+  z-index: 1;
 }
-.text{
-    color: white;
-    position: relative;
-    font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 36px;
-line-height: 122%;
-/* text-align: center; */
-z-index: 10;
+.text {
+  color: white;
+  position: relative;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 122%;
+  /* text-align: center; */
+  z-index: 10;
 }
-.trekking__item-tours p{
-    top: -320px;
-    left: 146px;
+.trekking__item-tours p {
+  top: -320px;
+  left: 146px;
 }
-.multidays__item-tours p{
-    top: -320px;
-    left: 146px;
+.multidays__item-tours p {
+  top: -320px;
+  left: 146px;
 }
 .horse__item-tours p {
-    top: -320px;
-    left: 86px;  
+  top: -320px;
+  left: 86px;
 }
-.homePage__item-socialIcon{
-    height: 216px;
-    position: fixed;
-    z-index: 15;
-    top: 40%;
-    left: 16px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
+.homePage__item-socialIcon {
+  height: 216px;
+  position: fixed;
+  z-index: 15;
+  top: 40%;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 /* !adapt  */
-.adaptTours-filter{
-    width: 100%;
+.adaptTours-filter {
+  width: 100%;
+  display: none;
+  flex-wrap: wrap;
+  margin: 120px 50px 0px 0px;
+  justify-content: center;
+  align-items: center;
+}
+.adaptTrekking__item-tours img {
+  margin: 50px 50px 0px 0px;
+  background-size: cover;
+}
+.adaptMultidays__item-tours img {
+  margin: 100px 50px 0px 0px;
+  background-size: cover;
+}
+.adaptHorse__item-tours img {
+  margin: 50px 20px 50px 0px;
+  background-size: cover;
+}
+.toursText {
+  position: relative;
+  top: -320px;
+  color: white;
+  /* text-align: center; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 122%;
+}
+@media (max-width: 1024px) {
+  .tours-filter {
     display: none;
-    flex-wrap: wrap;
-    margin: 120px 50px 0px 0px;
-    justify-content: center;
-    align-items: center;
-
-   
-}
-.adaptTrekking__item-tours img{
-    margin: 50px 50px 0px 0px ;
-    background-size: cover;
-}
-.adaptMultidays__item-tours img{
-    margin: 100px 50px 0px 0px ;
-        background-size: cover;
-  
-}
-.adaptHorse__item-tours img{
-    margin:50px 20px 50px 0px ;
-    background-size: cover; 
-   
-}
-.toursText{
-    position: relative;
-    top: -320px;
-    color: white;
-    /* text-align: center; */
+  }
+  .adaptTours-filter {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 36px;
-line-height: 122%;
-}
-@media (max-width:1024px) {
-    .tours-filter {
-        display: none;
-    }
-    .adaptTours-filter {
-        display: flex;
-    }
-    .adaptTrekking__item-tours img,
-    .adaptMultidays__item-tours img,
-    .adaptHorse__item-tours img {
-        width: 100%;
-        height: auto;
-        margin: 50px 0;
-    }
+  }
+  .adaptTrekking__item-tours img,
+  .adaptMultidays__item-tours img,
+  .adaptHorse__item-tours img {
+    width: 100%;
+    height: auto;
+    margin: 50px 0;
+  }
 }
 
-@media (max-width:768px) {
-    .tours-filter {
-        display: none;
-    }
-    .adaptTours-filter {
-        display: flex;
-    }
-    .adaptTrekking__item-tours img,
-    .adaptMultidays__item-tours img,
-    .adaptHorse__item-tours img {
-        width: 100%;
-        height: auto;
-        margin: 50px 0;
-    }
+@media (max-width: 768px) {
+  .tours-filter {
+    display: none;
+  }
+  .adaptTours-filter {
+    display: flex;
+  }
+  .adaptTrekking__item-tours img,
+  .adaptMultidays__item-tours img,
+  .adaptHorse__item-tours img {
+    width: 100%;
+    height: auto;
+    margin: 50px 0;
+  }
 }
 
-@media (max-width:425px) {
-    .tours-filter {
-        display: none;
-    }
-    .adaptTours-filter {
-        display: flex;
-        width: 80%;
-    }
-    .adaptTrekking__item-tours img,
-    .adaptMultidays__item-tours img,
-    .adaptHorse__item-tours img {
-        width: 60%;
-    }
+@media (max-width: 425px) {
+  .tours-filter {
+    display: none;
+  }
+  .adaptTours-filter {
+    display: flex;
+    width: 80%;
+  }
+  .adaptTrekking__item-tours img,
+  .adaptMultidays__item-tours img,
+  .adaptHorse__item-tours img {
+    width: 60%;
+  }
 }
-@media (max-width:375px) {
-    .tours-filter {
-        display: none;
-    }
-    .adaptTours-filter {
-        display: flex;
-        width: 70%;
-    }
-.toursText{
-text-align: center;
+@media (max-width: 375px) {
+  .tours-filter {
+    display: none;
+  }
+  .adaptTours-filter {
+    display: flex;
+    width: 70%;
+  }
+  .toursText {
+    text-align: center;
+  }
 }
+
+/* todo trekking  */
+.divider {
+  height: 100px;
+}
+#sideBarIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 216px;
+  margin: 0 30px;
+  align-self: center;
+}
+.tourTrekkingContainer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+  background-color: #435558;
+}
+.h1Trekking {
+  /* margin: 0 35%; */
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+.toursCard {
+  width: 70%;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+#forflexingcardandsocial {
+  display: flex;
+}
+#toursCardImg {
+  width: 264;
+  height: 100%;
+}
+.tourInformationCardContiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.tourInformationCardContiner h2 {
+  font-size: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+}
+.tourInformationCard {
+  list-style: none;
+  display: flex;
+  height: 55%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.tourInformationCard li {
+  font-size: 24px;
+}
+#detailTour {
+  width: 230px;
+  height: 60px;
+  color: #435558;
+  font-size: 24px;
+  border: none;
+  background: #ffffff;
+  border-radius: 50px;
 }

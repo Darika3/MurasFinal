@@ -29,12 +29,6 @@ const Clothes = () => {
     setPage(1);
   }, [searchParams]);
 
-  // const product = [...products];
-  // ! фильтр для отображения декор
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   // !PAGINATION
 
   //pagination

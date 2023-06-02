@@ -1,30 +1,16 @@
+
+
 import { useEffect, useState } from "react";
 import "./AddProduct.css";
 import Navbar from "../../Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useProduct } from "../../../context/ProductContextProvider";
 
-const AddProduct = () => {
-  const [category, setCategory] = useState("");
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    price: 0,
-    image: "",
-    type: "",
-    category: category,
-    distance: "",
-    ingredients: "",
-    preparationTime: "",
-    raiting: 0,
-    altitude: "",
-    season: "",
-    route: "",
-    time: "",
-  });
-
-  const navigate = useNavigate();
-  const { addProduct } = useProduct();
+const EditProduct = () => {
+    const [category, setCategory] = useState("");
+  const {saveEditedProduct, getProductDetails, productDetails} = useProduct();
+  const [product, setProduct] = useState(productDetails)
+const {id} = useParams();
 
   const handleInp = (e) => {
     if (e.target.name === "price") {
@@ -53,16 +39,24 @@ const AddProduct = () => {
     }));
   }, [category]);
 
+  useEffect(() => {
+    getProductDetails(id);
+  }, []);
+  useEffect(() => {
+    setProduct(productDetails);
+  }, [productDetails]);
   return (
     <>
       <Navbar />
       <div className="addFood-container">
         <div id="inpCont">
-          <h1 style={{ marginBottom: "20px" }}>Add Product</h1>
+          <h1 style={{ marginBottom: "20px" }}>Edit Product</h1>
           <select
             style={{ color: "#A3B5BF", textShadow: "1px 1px black" }}
             name="category"
             onChange={handleCategoryChange}
+            defaultValue="All"
+            // value={product.category || ""}
           >
             <option value="All">Choose category</option>
             <option value="food">Food</option>
@@ -78,12 +72,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -91,43 +87,44 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
-              />
-              <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Total time"
-                name="time"
-              />
-              <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Season"
-                name="season"
-              />
-              <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Altitude"
-                name="altitude"
+                value={product.price || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Distance"
                 name="distance"
+                value={product.distance || ""}
               />
-
-              <input
+               <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Total time"
+                name="time"
+              />
+                <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Season"
+                name="season"
+              />
+                <input
+                onChange={handleInp}
+                type="text"
+                placeholder="Altitude"
+                name="altitude"
+              />
+               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Route"
                 name="route"
               />
-              <input
+               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Raiting"
-                name="raiting"
+                name="raitin"
               />
             </>
           )}
@@ -138,12 +135,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -151,18 +150,22 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.price|| ""}
+
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Preparation Time"
                 name="preparationTime"
+                value={product.preparationTime|| ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Ingredients"
                 name="ingredients"
+                value={product.ingredients || ""}
               />
             </>
           )}
@@ -173,12 +176,15 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
+
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -186,6 +192,7 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.price || ""}
               />
             </>
           )}
@@ -196,12 +203,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -209,19 +218,22 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.name || ""}
               />
             </>
           )}
-          <select
-            style={{ color: "#A3B5BF" }}
-            onChange={handleInp}
-            name="type"
-            id="none"
-          >
-            {category === "All" && (
-              <>
-                {/* <option>Choose type</option> */}
-                {/* <option>Headdress</option>
+<select
+          style={{ color: "#A3B5BF" }}
+          onChange={handleInp}
+          name='type'
+          id="none"
+          value={product.type || ""}
+        >
+          {category === "All" && (
+            <>
+         
+              {/* <option>Choose type</option> */}
+              {/* <option>Headdress</option>
               <option>Shoes</option>
               <option>Meal</option>
               <option>Drinks</option>
@@ -232,57 +244,58 @@ const AddProduct = () => {
               <option>Trekking Tours</option>
               <option>Multidays Tours</option>
               <option>Horse Tours</option> */}
-              </>
-            )}
-            {category === "clothes" && (
-              <>
-                <option>Choose type</option>
+            </>
+          )}
+          {category === "clothes" && (
+            <>
+           <option>Choose type</option>
 
-                <option>Outerwear</option>
-                <option>Headdress</option>
-                <option>Shoes</option>
-              </>
-            )}
-            {category === "food" && (
-              <>
-                <option>Choose type</option>
+              <option>Outerwear</option>
+              <option>Headdress</option>
+              <option>Shoes</option>
+            </>
+          )}
+          {category === "food" && (
+            <>
+           <option>Choose type</option>
 
-                <option>Meal</option>
-                <option>Drinks</option>
-                <option>Snacks</option>
-              </>
-            )}
-            {category === "souvenirs" && (
-              <>
-                <option>Choose type</option>
+              <option>Meal</option>
+              <option>Drinks</option>
+              <option>Snacks</option>
+            </>
+          )}
+          {category === "souvenirs" && (
+            <>
+           <option>Choose type</option>
 
-                <option>Jewellery</option>
-                <option>Instruments</option>
-                <option>other Souvenirs</option>
-              </>
-            )}
-            {category === "tours" && (
-              <>
-                <option>Choose type</option>
+              <option>Jewellery</option>
+              <option>Instruments</option>
+              <option>other Souvenirs</option>
+            </>
+          )}
+          {category === "tours" && (
+            <>
+           <option>Choose type</option>
 
-                <option>Trekking Tours</option>
-                <option>Multidays Tours</option>
-                <option>Horse Tours</option>
-              </>
-            )}
-          </select>
+              <option>Trekking Tours</option>
+              <option>Multidays Tours</option>
+              <option>Horse Tours</option>
+            </>
+          )}
+        </select>
           <input
             id="fileInp"
             onChange={handleInp}
             type="url"
             placeholder="Picture"
             name="image"
+            value={product.image || ""}
           />
-          <button onClick={() => addProduct(product)}>Add Product</button>
+          <button onClick={() => saveEditedProduct(product)}>Save Changes</button>
         </div>
       </div>
     </>
   );
 };
 
-export default AddProduct;
+export default EditProduct;
