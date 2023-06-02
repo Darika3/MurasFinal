@@ -156,11 +156,7 @@ const Navbar = () => {
       </div>
       {openModal && (
         <div className="modal-profile">
-<<<<<<< HEAD
-          <p onClick={() => navigate("/authorization")}>Register</p>
-=======
           <p onClick={() => navigate("/authtor")}>Register</p>
->>>>>>> ff65a38a19e987aa5c51cab150bfd759ca28fcff
           <p onClick={() => navigate("/login")}>Login</p>
           <p onClick={handleLogout}>Logout</p>
           <hr></hr>

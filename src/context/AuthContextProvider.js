@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import fire from "../fire";
@@ -111,4 +109,3 @@ const AuthContextProvider = ({ children }) => {
 };
 
 export default AuthContextProvider;
->>>>>>> ff65a38a19e987aa5c51cab150bfd759ca28fcff
