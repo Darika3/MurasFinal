@@ -3,30 +3,14 @@
 import { useEffect, useState } from "react";
 import "./AddProduct.css";
 import Navbar from "../../Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useProduct } from "../../../context/ProductContextProvider";
 
-const AddProduct = () => {
-  const [category, setCategory] = useState("");
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    price: 0,
-    image: "",
-    type: "",
-    category: category,
-    distance: "",
-    ingredients: "",
-    preparationTime: "",
-    altitude: "",
-    season:"",
-    route: "",
-    time: "",
-    raiting:"",
-  });
-
-  const navigate = useNavigate();
-  const { addProduct } = useProduct();
+const EditProduct = () => {
+    const [category, setCategory] = useState("");
+  const {saveEditedProduct, getProductDetails, productDetails} = useProduct();
+  const [product, setProduct] = useState(productDetails)
+const {id} = useParams();
 
   const handleInp = (e) => {
     if (e.target.name === "price") {
@@ -55,16 +39,24 @@ const AddProduct = () => {
     }));
   }, [category]);
 
+  useEffect(() => {
+    getProductDetails(id);
+  }, []);
+  useEffect(() => {
+    setProduct(productDetails);
+  }, [productDetails]);
   return (
     <>
       <Navbar />
       <div className="addFood-container">
         <div id="inpCont">
-          <h1 style={{ marginBottom: "20px" }}>Add Product</h1>
+          <h1 style={{ marginBottom: "20px" }}>Edit Product</h1>
           <select
             style={{ color: "#A3B5BF", textShadow: "1px 1px black" }}
             name="category"
             onChange={handleCategoryChange}
+            defaultValue="All"
+            // value={product.category || ""}
           >
             <option value="All">Choose category</option>
             <option value="food">Food</option>
@@ -80,12 +72,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -93,42 +87,14 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.price || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
-                placeholder="Total time"
-                name="time"
-              />
-                <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Season"
-                name="season"
-              />
-                <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Altitude"
-                name="altitude"
-              />
-                <input
-                onChange={handleInp}
-                type="text"
                 placeholder="Distance"
                 name="distance"
-              />
-               <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Route"
-                name="route"
-              />
-               <input
-                onChange={handleInp}
-                type="text"
-                placeholder="Raiting"
-                name="raitin"
+                value={product.distance || ""}
               />
             </>
           )}
@@ -139,12 +105,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -152,18 +120,22 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.price|| ""}
+
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Preparation Time"
                 name="preparationTime"
+                value={product.preparationTime|| ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Ingredients"
                 name="ingredients"
+                value={product.ingredients || ""}
               />
             </>
           )}
@@ -174,12 +146,15 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
+
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -187,6 +162,7 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.price || ""}
               />
             </>
           )}
@@ -197,12 +173,14 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Title"
                 name="name"
+                value={product.name || ""}
               />
               <input
                 onChange={handleInp}
                 type="text"
                 placeholder="Description"
                 name="description"
+                value={product.description || ""}
               />
 
               <input
@@ -210,6 +188,7 @@ const AddProduct = () => {
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
+                value={product.name || ""}
               />
             </>
           )}
@@ -218,6 +197,7 @@ const AddProduct = () => {
           onChange={handleInp}
           name='type'
           id="none"
+          value={product.type || ""}
         >
           {category === "All" && (
             <>
@@ -279,12 +259,13 @@ const AddProduct = () => {
             type="url"
             placeholder="Picture"
             name="image"
+            value={product.image || ""}
           />
-          <button onClick={() => addProduct(product)}>Add Product</button>
+          <button onClick={() => saveEditedProduct(product)}>Save Changes</button>
         </div>
       </div>
     </>
   );
 };
 
-export default AddProduct;
+export default EditProduct;
