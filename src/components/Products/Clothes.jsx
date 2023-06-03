@@ -7,49 +7,44 @@ import instagram from "../../assets/image/inst.svg";
 import telegram from "../../assets/image/telegram.svg";
 import facebook from "../../assets/image/facebook.svg";
 import WhatsApp from "../../assets/image/Wp.svg";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
 
 import ProductCard from "../Products/ProductCard";
 import { useProduct } from "../../context/ProductContextProvider";
-import { useAuth } from "../../context/AuthContextProvider";
-const Clothes = () => {
-  const { products, getProducts } = useProduct();
+import { useSearchParams } from "react-router-dom";
+const Clothes = ({}) => {
+  const { products, getProducts, getFilterClothes} = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const {
-    user: { email },
-  } = useAuth();
-  // !SEARCH
+  const clothes = getFilterClothes()
+
   useEffect(() => {
     getProducts();
   }, []);
-  useEffect(() => {
-    getProducts();
-    setPage(1);
-  }, [searchParams]);
+ 
 
-  // !PAGINATION
+  //  !pagination 
+const [page, setPage] = useState(1)
+const itemsPerPage = 3;
+const count = Math.ceil(clothes?.length/itemsPerPage);
+useEffect(() => {
+  getProducts();
+  setPage(1);
+}, [searchParams]);
 
-  //pagination
-  const [page, setPage] = useState(1); // текущая страница
-  const itemsPerPage = 3; // кол-во элементов на одной странице
-  const count = Math.ceil(products?.length / itemsPerPage); // общее кол-во страниц пагинации
+useEffect(()=>{
+  getProducts()
+  getFilterClothes()
+},[])
 
-  // функция для изменения состояния текущей страницы
-  const handleChange = (e, p) => {
-    setPage(p);
-  };
-
-  // функция, которая возвращает только те элементы, которые должны отображаться на текущей странице
-  function currentData() {
-    // начальный индекс
-    const begin = (page - 1) * itemsPerPage;
-    // конечный индекс
-    const end = begin + itemsPerPage;
-    // возвращаем массив, состоящий из фиксированного кол-ва элементов
-    return products.slice(begin, end);
-  }
+// меняем тек стр
+const handChange = (e, p)=>{      //event, page(значение кнопки)
+  setPage(p);
+}
+ function currentClothesData(){
+  const begin = (page-1) * itemsPerPage;
+  const end = begin + itemsPerPage;
+  return clothes.slice(begin, end)       //вазвращает массив сосотоящий из фиксированного кол-во элемента
+ }
   return (
     <div>
       <Navbar />
@@ -70,8 +65,9 @@ const Clothes = () => {
             artistic skills and craftsmanship of the Kyrgyz people but also
             serves as a visual representation of their cultural identity and
             heritage.
-          </p>
-          <button id="clothMainRightButton">Order Now</button>
+          </p> 
+          <a href="#clothes">          <button id="clothMainRightButton">Order Now</button>
+</a>
           <div className="homePage__item-socialIcon">
             <a href="#">
               <img className="social-icon" src={instagram} alt="instagram" />
@@ -91,32 +87,31 @@ const Clothes = () => {
           </div>
         </div>
       </div>
-      <div className="product__food_card-container">
+      <div id="clothes" className="product__food_card-container">
         <div className="item_filter-btn">
           <button>Outerwear</button>
           <button>Headdress</button>
           <button>Shoes</button>
         </div>
-        <div>
-          <h1>PRODUCT LIST</h1>
-          {products.map((item) =>
-            item.type === "Outerwear" ||
-            item.type === "Headdress" ||
-            item.type === "Shoes" ? (
-              <ProductCard key={item.id} item={item} />
-            ) : null
-          )}
-          
-        </div>
+        <div style= {{display: "flex", flexDirection: "column",}}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {currentClothesData().map((item) =>
+          item.category === "clothes" ? (
+            <ProductCard key={item.id} item={item} />
+          ) : null
+        )}
       </div>
-      <Pagination
-            sx={{ display: "flex", justifyContent: "center" }}
-            count={count}
-            page={page}
-            onChange={handleChange}
-            variant="outlined"
-            color="secondary"
-          />
+        <div style={{margin: "0 auto", marginBottom:"20px"}}>
+            <Pagination
+         
+         count={count}
+          page={page}
+          onChange={handChange}
+          variant="outlined"
+        />
+        </div>
+        </div>
+    </div>
     </div>
   );
 };

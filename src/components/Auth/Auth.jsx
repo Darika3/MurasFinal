@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth } from "../../context/AuthContextProvider";
 import "../Auth/Auth.css";
+import Navbar from "../Navbar/Navbar";
 
 function Copyright(props) {
   return (
@@ -62,6 +63,8 @@ export default function Auth() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="authBox">
       <div className="cont">
         <ThemeProvider theme={theme}>
@@ -122,7 +125,6 @@ export default function Auth() {
                   required
                   fullWidth
                   name="password"
-                  sx={{ color: "white" }}
                   label="Password"
                   type="password"
                   id="password"
@@ -186,5 +188,6 @@ export default function Auth() {
         </ThemeProvider>
       </div>
     </div>
+    </>
   );
 }

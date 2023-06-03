@@ -1,6 +1,6 @@
-* {
+ /* *{
   color: white;
-}
+ } */
 .authBox {
   background-image: url("https://vsegda-pomnim.com/uploads/posts/2022-04/1650890391_64-vsegda-pomnim-com-p-gornii-kirgizstan-foto-69.jpg");
   height: 100vh;
@@ -19,5 +19,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.304);
+  background-color: rgba(0, 0, 0, 0.401);
+}
+#cart{
+  padding: 70px;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://static.tildacdn.com/tild3963-6262-4266-b430-663433333166/MIG_9974-Pano.jpg");
+  background-repeat: no-repeat;
+  /* opacity: 0.9; */
+  background-size: cover;
 }

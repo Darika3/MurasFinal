@@ -218,7 +218,7 @@ const {id} = useParams();
                 placeholder="Price"
                 onChange={handleInp}
                 name="price"
-                value={product.name || ""}
+                value={product.price || ""}
               />
             </>
           )}

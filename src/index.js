@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import AuthContextProvider from "./context/AuthContextProvider";
 import CartContextProvider from "./context/CartContextProvider";
+import FavoriteContextProvider from "./context/FavoriteContextProvider";
 import ProductContextProvider from "./context/ProductContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,7 +13,9 @@ root.render(
     <CartContextProvider>
       <AuthContextProvider>
         <ProductContextProvider>
-          <App />
+          <FavoriteContextProvider>
+            <App />
+          </FavoriteContextProvider>
         </ProductContextProvider>
       </AuthContextProvider>
     </CartContextProvider>

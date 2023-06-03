@@ -19,7 +19,8 @@ function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_CART":
       return { ...state, cart: action.payload };
-
+    case "GET_CART_LENGTH":
+      return { ...state, cartLength: action.payload };
     default:
       return state;
   }
@@ -57,7 +58,7 @@ const CartContextProvider = ({ children }) => {
     let productToFind = cart.products.filter(
       (elem) => elem.item.id === product.id
     );
-    if (productToFind === 0) {
+    if (productToFind.length === 0) {
       cart.products.push(newProduct);
     } else {
       cart.products = cart.products.filter(
@@ -72,7 +73,7 @@ const CartContextProvider = ({ children }) => {
   const checkProductInCart = (id) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (cart) {
-      let newCart = cart.productsfilter((elem) => elem.item.id === id);
+      let newCart = cart.products.filter((elem) => elem.item.id === id);
       return newCart.length > 0 ? true : false;
     }
   };

@@ -56,8 +56,16 @@ const ProductContextProvider = ({ children }) => {
       payload: data,
     });
   };
-
+  // filter
+  function getFilterClothes() {
+    return state.products.filter((elem) => elem.category === "clothes");
+  }
+  function getFilterSouvenirs() {
+    return state.products.filter((elem) => elem.category === "souvenirs");
+  }
   const values = {
+    getFilterSouvenirs,
+    getFilterClothes,
     getProducts,
     addProduct,
     products: state.products,

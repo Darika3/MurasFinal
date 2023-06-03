@@ -9,33 +9,40 @@ import facebook from "../../assets/image/facebook.svg";
 import WhatsApp from "../../assets/image/Wp.svg";
 
 import { useSearchParams } from "react-router-dom";
-import { Pagination } from "@mui/material";
+import { Box, Grid, Pagination } from "@mui/material";
 
 import ProductCard from "../Products/ProductCard";
 import { useProduct } from "../../context/ProductContextProvider";
 import Navbar from "../Navbar/Navbar";
 
 const ProductFood = () => {
+
+
+
   const { getProducts, products, pages } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  function getPagesCount() {
-    const pageCountArr = [];
-    for (let i = 1; i <= pages; i++) {
-      pageCountArr.push(i);
-    }
-    return pageCountArr;
-  }
-  const [currentPage, setCurrentPage] = useState(1);
-  getPagesCount();
-  useEffect(() => {
-    setSearchParams({ page: currentPage });
-  }, [currentPage]);
-  useEffect(() => {
+
+ useEffect(() => {
     getProducts();
-  }, [searchParams]);
-  console.log("products", products);
-  if (currentPage < 1) setCurrentPage(1);
-  if (currentPage > pages) setCurrentPage(pages);
+  }, []);
+
+//  !pagination 
+const [page, setPage] = useState(1)
+const itemsPerPage = 6;
+const count = Math.ceil(products?.length/itemsPerPage);
+useEffect(() => {
+  getProducts();
+  setPage(1);
+}, [searchParams]);
+// меняем тек стр
+ const handleChange = (e, p)=>{      //event, page(значение кнопки)
+  setPage(p);
+}
+ function currentData(){
+  const begin = (page-1)*  itemsPerPage;
+  const end = begin+ itemsPerPage;
+  return products.slice(begin, end)       //вазвращает массив сосотоящий из фиксированного кол-во элемента
+ }
   return (
     <>
       <Navbar />
@@ -56,7 +63,7 @@ const ProductFood = () => {
             </p>
           </div>
           <div className="product__food-btn">
-            <button>Order Now</button>
+            <a href="#food"><button>Order Now</button></a>
           </div>
           <div className="homePage__item-socialIcon">
             <a href="#">
@@ -74,44 +81,34 @@ const ProductFood = () => {
           </div>
         </div>
       </div>
-      <div className="product__food_card-container">
+      <div id="food" className="product__food_card-container">
         <div className="item_filter-btn">
           <button>Meal</button>
           <button>Drinks</button>
           <button>Snacks</button>
         </div>
-        <div style={{display: "flex" }}>
-          {products.map((item) =>
+        <div style= {{display: "flex", flexWrap:"wrap"}}>
+        {/* <div 
+        style= {{display: "flex"}}> */}
+          {currentData().map((item) =>
          item.category === "food"? (
               <ProductCard key={item.id} item={item} />
             ) : null
           )}
         </div>
-        <Pagination>
-            <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
-            {getPagesCount().map((item) =>
-              item === currentPage ? (
-                <Pagination.Item
-                  onClick={() => setCurrentPage(item)}
-                  key={item}
-                  active
-                >
-                  {item}
-                </Pagination.Item>
-              ) : (
-                <Pagination.Item
-                  onClick={() => setCurrentPage(item)}
-                  key={item}
-                >
-                  {item}
-                </Pagination.Item>
-              )
-            )}
-
-            <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
-          </Pagination>
+        <div style={{margin: "0 auto", marginBottom:"20px"}}>
+            <Pagination
+         
+          count={count}
+          page={page}
+          onChange={handleChange}
+          variant="outlined"
+        />
+        </div>
+        {/* </div> */}
       </div>
     </>
+    
   );
 };
 
