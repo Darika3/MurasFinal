@@ -16,6 +16,7 @@ import EditProduct from "../components/Products/Crud/EditProduct";
 import TrekkingTours from "../components/Tours/TrekkingTours";
 import MultidaysTour from "../components/Tours/MultidaysTour";
 import HorseRiding from "../components/Tours/HorseRiding";
+import FavPage from "../FavPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -36,7 +37,7 @@ const MainRoutes = () => {
     { link: "/admin", element: <AddProduct />, id: 12 },
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
-    { link: "/authtor", element: <Auth />, id: 15 },
+    { link: "/fav", element: <FavPage />, id: 15 },
   ];
   return (
     <>

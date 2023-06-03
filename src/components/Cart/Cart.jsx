@@ -9,6 +9,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useCart } from "../../context/CartContextProvider";
 import { useEffect } from "react";
+import "../Auth/Auth.css"
+import Navbar from "../Navbar/Navbar";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -49,23 +51,26 @@ export default function Cart() {
     getCart();
   }, []);
 
-  // const cartCleaner= ()=>{
-  //     localStorage.removeItem("cart");
-  //     getCart();
-  // }
+  const cartCleaner= ()=>{
+      localStorage.removeItem("cart");
+      getCart();
+  }
 
   return (
+    <>
+    <Navbar/>
+    <div id="cart">
     <TableContainer
-      sx={{ width: "90%", margin: "20px auto" }}
+      sx={{ width: "90%", margin: "20px auto", opacity: "0.8" }}
       component={Paper}
     >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow
             sx={{
-              dispaly: "flex",
-              justifyContent: "space-around",
-              flexWrap: "wrap",
+              // display: "flex",
+              // justifyContent: "space-around",
+              // flexWrap: "wrap",
               textAlign: "center",
             }}
           >
@@ -88,7 +93,10 @@ export default function Cart() {
               SubPrice
             </StyledTableCell>
             <StyledTableCell sx={{ textAlign: "center" }} align="right">
-              -
+              totalSubPrice
+            </StyledTableCell>
+            <StyledTableCell sx={{ textAlign: "center" }} align="right">
+              Delete
             </StyledTableCell>
           </TableRow>
         </TableHead>
@@ -96,7 +104,7 @@ export default function Cart() {
           {cart?.products.map((row) => (
             <StyledTableRow key={row.item.id}>
               <StyledTableCell component="th" scope="row">
-                <img src={row.item.picture} width="70" height="70" alt="" />
+                <img src={row.item.image} width="100" height="100" alt="" />
               </StyledTableCell>
               <StyledTableCell align="right">{row.item.name}</StyledTableCell>
               <StyledTableCell align="right">
@@ -109,19 +117,23 @@ export default function Cart() {
               <StyledTableCell align="right">
                 <input
                   type="number"
-                  onChange={(e) =>
-                    changeProductCount(e.target.value, row.item.id)
-                  }
+                  onChange={(e) => {
+                    const newCount = e.target.value < 1 ? 1  : e.target.value;
+                    changeProductCount(newCount, row.item.id);
+                  }}
                   value={row.count}
                 />
               </StyledTableCell>
-              <button onClick={() => deleteCartProduct(row.item.id)}>
-                DELETE
-              </button>
+              <StyledTableCell align="right">
+                {row.subPrice}
+              </StyledTableCell>
+              <img onClick={() => deleteCartProduct(row.item.id)} src="https://w7.pngwing.com/pngs/819/417/png-transparent-rubbish-bins-waste-paper-baskets-emoji-recycling-bin-viber-glass-angle-recycling-thumbnail.png"  alt="korzina"  style= {{width:"50px", height: "50px", backgroundColor: "transparent", marginTop:"45px"}}  />
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
+    </>
   );
 }

@@ -25,6 +25,7 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import { useAuth } from "../../context/AuthContextProvider";
+import { Badge } from "@mui/base";
 
 const pages = [
   { name: "Home", link: "/", id: 1 },
@@ -131,7 +132,7 @@ const Navbar = () => {
           <input type="text" />
         </div>
         <div className="item-icons">
-          <img src={favoriteIcon} alt="favoriteIcon" />
+          <img onClick={()=> navigate("/fav")} src={favoriteIcon} alt="favoriteIcon" />
           <img
             onClick={() => navigate("/cart")}
             src={shopIcon}
@@ -159,8 +160,7 @@ const Navbar = () => {
           <p style={{paddingBottom:"3px"}} onClick={() => navigate("/authtor")}>SignIn</p>
           <p  style={{paddingBottom:"5px"}}onClick={handleLogout} >Logout</p>
           <hr></hr>
-          
-          {email ? email : null}
+          <p>{email ? email : null}</p>
         </div>
       )}
       <div>

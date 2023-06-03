@@ -13,26 +13,37 @@ import { Pagination } from "@mui/material";
 import ProductCard from "../Products/ProductCard";
 import { useProduct } from "../../context/ProductContextProvider";
 const Souvenirs = () => {
-  const { getProducts, products, pages } = useProduct();
+  const { getProducts, products, pages, getFilterSouvenirs } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  function getPagesCount() {
-    const pageCountArr = [];
-    for (let i = 1; i <= pages; i++) {
-      pageCountArr.push(i);
-    }
-    return pageCountArr;
-  }
-  const [currentPage, setCurrentPage] = useState(1);
-  getPagesCount();
-  useEffect(() => {
-    setSearchParams({ page: currentPage });
-  }, [currentPage]);
-  useEffect(() => {
+
+const souvenirs = getFilterSouvenirs();
+
+useEffect(() => {
     getProducts();
-  }, [searchParams]);
-  console.log(products);
-  if (currentPage < 1) setCurrentPage(1);
-  if (currentPage > pages) setCurrentPage(pages);
+  }, []);
+
+   //  !pagination 
+const [page, setPage] = useState(1)
+const itemsPerPage = 3;
+const count = Math.ceil(souvenirs?.length/itemsPerPage);
+useEffect(() => {
+  getProducts();
+  setPage(1);
+}, [searchParams]);
+
+useEffect(()=>{
+    getProducts()
+    getFilterSouvenirs()
+  },[])
+
+  const handChange = (e, p)=>{      //event, page(значение кнопки)
+    setPage(p);
+  }
+  function currentSouvenirsData(){
+    const begin = (page-1) * itemsPerPage;
+    const end = begin + itemsPerPage;
+    return souvenirs.slice(begin, end)       //вазвращает массив сосотоящий из фиксированного кол-во элемента
+   }
   return (
     <>
       <Navbar />
@@ -50,8 +61,8 @@ const Souvenirs = () => {
             souvenirs encapsulate the spirit of Kyrgyzstan, allowing you to
             carry a piece of its beauty and culture wherever you go.
           </p>
-          <button id="souvenirsMainLeftButton">Order Now</button>
-        </div>
+          <a href="#jewerly"><button id="souvenirsMainLeftButton">Order Now</button>
+</a>        </div>
         <img id="souvenirsImage" src={souvenirsimg} alt="" />
       </div>
       <div className="homePage__item-socialIcon">
@@ -72,47 +83,31 @@ const Souvenirs = () => {
         </a>
       </div>
 
-      <div className="product__food_card-container">
+      <div id="jewerly" className="product__food_card-container">
         <div className="item_filter-btn">
           <button>Jewellery</button>
           <button>Instruments</button>
           <button>other Souvenirs</button>
         </div>
-        <div>
-          <h1>PRODUCT LIST</h1>
-          {products.map((item) =>
-            item.category === "Jewellery" ||
-            item.category === "Instruments" ||
-            item.category === "other Souvenirs" ? (
-              <ProductCard key={item.id} item={item} />
-            ) : null
-          )}
-
-          <Pagination>
-            <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
-            {getPagesCount().map((item) =>
-              item === currentPage ? (
-                <Pagination.Item
-                  onClick={() => setCurrentPage(item)}
-                  key={item}
-                  active
-                >
-                  {item}
-                </Pagination.Item>
-              ) : (
-                <Pagination.Item
-                  onClick={() => setCurrentPage(item)}
-                  key={item}
-                >
-                  {item}
-                </Pagination.Item>
-              )
-            )}
-
-            <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
-          </Pagination>
-        </div>
+        <div style= {{display: "flex", flexDirection: "column",}}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        { currentSouvenirsData().map((item) =>
+          item.category === "souvenirs" ? (
+            <ProductCard key={item.id} item={item} />
+          ) : null
+        )}
       </div>
+        <div style={{margin: "0 auto", marginBottom:"20px"}}>
+            <Pagination
+         
+         count={count}
+          page={page}
+          onChange={handChange}
+          variant="outlined"
+        />
+        </div>
+        </div>
+        </div>
     </>
   );
 };
