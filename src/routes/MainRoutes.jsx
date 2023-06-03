@@ -14,6 +14,7 @@ import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
 import TrekkingTours from "../components/Tours/TrekkingTours";
 import EditProduct from "../components/Products/Crud/EditProduct";
+import FavPage from "../FavPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -33,6 +34,7 @@ const MainRoutes = () => {
     { link: "/admin", element: <AddProduct />, id: 12 },
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
+    { link: "/fav", element: <FavPage/>, id: 15 },
   ];
   return (
     <>

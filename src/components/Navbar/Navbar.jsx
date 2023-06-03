@@ -132,7 +132,7 @@ const Navbar = () => {
           <input type="text" />
         </div>
         <div className="item-icons">
-          <img src={favoriteIcon} alt="favoriteIcon" />
+          <img onClick={()=> navigate("/fav")} src={favoriteIcon} alt="favoriteIcon" />
           <img
             onClick={() => navigate("/cart")}
             src={shopIcon}
