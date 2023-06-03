@@ -6,15 +6,14 @@ import facebook from "../Products/assetsProducts/FacebookIcon.svg";
 import phoneIcon from "../Products/assetsProducts/PhoneIcon.svg";
 import starRatingEmpty from "../Products/assetsProducts/starRating.png";
 import starRatingFilled from "../Products/assetsProducts/starRatingFull.png";
-import trekkingToursHeader from "../Products/assetsProducts/trekkingTours.png";
+import HorseRidingToursHeader from "../Products/assetsProducts/horseRidingTours.png";
 import imageMountains from "../Products/assetsProducts/image 20.jpg";
 import Navbar from "../Navbar/Navbar";
 import { useProduct } from "../../context/ProductContextProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import "../Tours/Tours.css";
-
-const TrekkingTours = () => {
+const HorseRiding = () => {
   const { products, getProducts } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -65,7 +64,7 @@ const TrekkingTours = () => {
         <Navbar />
         <div className="divider"></div>
         <div className="h1Trekking">
-          <img src={trekkingToursHeader} alt="" />
+          <img src={HorseRidingToursHeader} alt="" />
         </div>
         <div id="forflexingcardandsocial">
           <div id="sideBarIcons">
@@ -109,4 +108,4 @@ const TrekkingTours = () => {
   );
 };
 
-export default TrekkingTours;
+export default HorseRiding;

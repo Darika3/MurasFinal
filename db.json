@@ -71,6 +71,10 @@
       "ingredients": "",
       "preparationTime": "",
       "id": 10
+    },
+    {
+      "rating": 2,
+      "id": 11
     }
   ]
 }

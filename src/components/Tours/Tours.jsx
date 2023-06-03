@@ -31,17 +31,20 @@ const Tours = () => {
         </div>
         <div className="tours-filter">
           <div
-            onClick={() => navigate("/trekking")}
+            onClick={() => navigate("/trek")}
             className="trekking__item-tours"
           >
             <img src={Trekking} alt="Trekking" />
             <p className="text">Trekking Tours</p>
           </div>
-          <div className="multidays__item-tours">
+          <div
+            onClick={() => navigate("/multidays")}
+            className="multidays__item-tours"
+          >
             <img src={Multidays} alt="Multidays" />
             <p className="text">Multidays Tours</p>
           </div>
-          <div className="horse__item-tours">
+          <div onClick={() => navigate("/horse")} className="horse__item-tours">
             <img src={HorseBack} alt="HorseBack" />
 
             <p className="text">Horseback Riding Tours</p>
