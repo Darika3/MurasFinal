@@ -53,13 +53,15 @@ function ToursDetails() {
   const handleLikeClick = () => {
     if (isLiked) {
       setLikes(likes - 1);
+      setIsLiked(false);
     } else {
       setLikes(likes + 1);
+      setIsLiked(true);
     }
-    setIsLiked(!isLiked);
 
-    // Save likes count to local storage
+    // Save likes count and liked status to local storage
     localStorage.setItem("likes", likes + 1);
+    localStorage.setItem("isLiked", isLiked ? "true" : "false");
   };
 
   useEffect(() => {
@@ -71,10 +73,14 @@ function ToursDetails() {
       setComments(JSON.parse(storedComments));
     }
 
-    // Load likes count from local storage
+    // Load likes count and liked status from local storage
     const storedLikes = localStorage.getItem("likes");
+    const storedIsLiked = localStorage.getItem("isLiked");
     if (storedLikes) {
       setLikes(parseInt(storedLikes));
+    }
+    if (storedIsLiked) {
+      setIsLiked(storedIsLiked === "true");
     }
   }, []);
 
