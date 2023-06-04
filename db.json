@@ -1326,7 +1326,7 @@
       "route": "sdfghj",
       "time": "344",
       "id": 21,
-      "rating": 2
+      "rating": 4
     },
     {
       "name": "Ejeshka krutaya",
@@ -1380,6 +1380,23 @@
       "route": "xdfcvgbhjvc",
       "time": "sdfgty",
       "id": 25
+    },
+    {
+      "name": "werftgyhujik",
+      "description": "dfrgthyujikol",
+      "price": 345678,
+      "image": "https://www.oliver.com.es/wp-content/uploads/kyrgyzstan_trek_islam_adventure_054.jpg",
+      "type": "trekking",
+      "category": "tours",
+      "distance": "dfghj",
+      "ingredients": "",
+      "preparationTime": "",
+      "raiting": "6",
+      "altitude": "sdefrgthyuj",
+      "season": "wertghyuj",
+      "route": "rfgthyju",
+      "time": "defrgthju",
+      "id": 26
     }
   ]
 }

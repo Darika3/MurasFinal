@@ -226,16 +226,18 @@
   justify-content: space-evenly;
 }
 .toursCard {
+  color: #ffffff;
   width: 70%;
   height: 700px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 #forflexingcardandsocial {
   display: flex;
 }
-#toursCardImg {
-  width: 264;
+.toursCardImg {
+  width: 600px;
   height: 100%;
 }
 .tourInformationCardContiner {
