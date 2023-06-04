@@ -27,7 +27,7 @@ const ForumContextProvider = ({ children }) => {
 
   // стягиваем данные
   const getTopics = async () => {
-    const { data } = await axios(`${API2}`);
+    const { data } = await axios(`${API2}${window.location.search}`);
     dispatch({ type: TOPICS.GET_TOPICS, payload: data });
   };
 
