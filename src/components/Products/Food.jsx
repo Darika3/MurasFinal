@@ -19,8 +19,9 @@ const ProductFood = () => {
 
 
 
-  const { getProducts, products, pages } = useProduct();
+  const { getProducts, products, pages} = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
+  const {filterByTtype} = useProduct()
 
  useEffect(() => {
     getProducts();
@@ -30,6 +31,7 @@ const ProductFood = () => {
 const [page, setPage] = useState(1)
 const itemsPerPage = 6;
 const count = Math.ceil(products?.length/itemsPerPage);
+
 useEffect(() => {
   getProducts();
   setPage(1);
@@ -82,10 +84,10 @@ useEffect(() => {
         </div>
       </div>
       <div id="food" className="product__food_card-container">
-        <div className="item_filter-btn">
-          <button>Meal</button>
-          <button>Drinks</button>
-          <button>Snacks</button>
+        <div  className="item_filter-btn">
+          <button onClick={(e)=>filterByTtype("type", "Meal")} value={"Meal"}>Meal</button>
+          <button onClick={(e)=>filterByTtype("type", "Drinks")} value={"Drinks"}>Drinks</button>
+          <button onClick={(e)=>filterByTtype("type", "Snacks")} value={"Snacks"}>Snacks</button>
         </div>
         <div style= {{display: "flex", flexWrap:"wrap"}}>
         {/* <div 

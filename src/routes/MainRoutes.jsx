@@ -17,6 +17,7 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 import MultidaysTour from "../components/Tours/MultidaysTour";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
+import TrekkingTours from "../components/Tours/TrekkingTours";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -26,10 +27,14 @@ const MainRoutes = () => {
     { link: "/clothes", element: <Clothes />, id: 4 },
     { link: "/souvenirs", element: <Souvenirs />, id: 5 },
 
+<<<<<<< HEAD
+    { link: "/trekking", element: <TrekkingTours />, id: 6 },
+=======
     { link: "/trek", element: <TrekkingTours />, id: 6 },
     { link: "/multidays", element: <MultidaysTour />, id: 7 },
     { link: "/horse", element: <HorseRiding />, id: 16 },
 
+>>>>>>> 32055b89dc9e8e40048d7741ba830fc1a5aaf3e7
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },

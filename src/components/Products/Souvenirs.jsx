@@ -15,6 +15,7 @@ import { useProduct } from "../../context/ProductContextProvider";
 const Souvenirs = () => {
   const { getProducts, products, pages, getFilterSouvenirs } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
+  const {filterByTtype} = useProduct()
 
 const souvenirs = getFilterSouvenirs();
 
@@ -85,9 +86,9 @@ useEffect(()=>{
 
       <div id="jewerly" className="product__food_card-container">
         <div className="item_filter-btn">
-          <button>Jewellery</button>
-          <button>Instruments</button>
-          <button>other Souvenirs</button>
+          <button onClick={(e)=>filterByTtype("type", "Jewellery")} value={"Jewellery"}>Jewellery</button>
+          <button onClick={(e)=>filterByTtype("type", "Instruments")} value={"Instruments"}>Instruments</button>
+          <button onClick={(e)=>filterByTtype("type", "other Souvenirs")} value={"Meal"}>other Souvenirs</button>
         </div>
         <div style= {{display: "flex", flexDirection: "column",}}>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
