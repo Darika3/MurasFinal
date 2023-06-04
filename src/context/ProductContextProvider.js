@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API, PRODUCTS } from "../helpers/const";
 
 export const productsContext = createContext();
@@ -28,7 +28,7 @@ const ProductContextProvider = ({ children }) => {
 
   // стягиваем данные
   const getProducts = async () => {
-    const { data } = await axios(`${API}`);
+    const { data } = await axios(`${API}${window.location.search}`);
     dispatch({ type: PRODUCTS.GET_PRODUCTS, payload: data });
   };
 
@@ -56,14 +56,34 @@ const ProductContextProvider = ({ children }) => {
       payload: data,
     });
   };
-  // filter
+
   function getFilterClothes() {
     return state.products.filter((elem) => elem.category === "clothes");
   }
   function getFilterSouvenirs() {
     return state.products.filter((elem) => elem.category === "souvenirs");
   }
+  function getFilterFood() {
+    return state.products.filter((elem) => elem.category === "food");
+  }
+  // filer
+  const location = useLocation();
+  // console.log(location.pathname);
+
+  const filterByTtype = async (query, value) => {
+    const filter = new URLSearchParams(window.location.filter);
+    if (value === "") {
+      filter.delete(query);
+    } else {
+      filter.set(query, value);
+    }
+    const url = `${location.pathname}?${filter.toString()}`;
+    navigate(url);
+  };
+
   const values = {
+    filterByTtype,
+    getFilterFood,
     getFilterSouvenirs,
     getFilterClothes,
     getProducts,

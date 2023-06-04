@@ -14,7 +14,7 @@ import { IconButton } from "@mui/material";
 
 
 
-const ProductCard = ({ item, category }) => {
+const ProductCard = ({ item, category}) => {
   const {deleteProduct}= useProduct();
   const navigate = useNavigate();
 
@@ -31,8 +31,8 @@ useEffect(()=>{getFav()},[]);
     <>
       <div className="card-container">
         <div className="card">
-        <img className='cardIcon' src={CardImg} alt="CardImg" />
           <div className="card-front">
+          <img className='cardIcon' src={CardImg} alt="CardImg" />
             <div className="mainImg-card">
               <img
                 src={item.image}

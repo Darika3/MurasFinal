@@ -12,9 +12,9 @@ import Culture from "../components/Culture/Culture";
 import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
-import TrekkingTours from "../components/Tours/TrekkingTours";
 import EditProduct from "../components/Products/Crud/EditProduct";
 import FavPage from "../FavPage";
+import TrekkingTours from "../components/Tours/TrekkingTours";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -25,8 +25,6 @@ const MainRoutes = () => {
     { link: "/souvenirs", element: <Souvenirs />, id: 5 },
 
     { link: "/trekking", element: <TrekkingTours />, id: 6 },
-    // { link: "/trekking", element: <TrekkingTours />, id: 7 },
-    // { link: "/trekking", element: <TrekkingTours />, id: 8 },
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },

@@ -12,6 +12,7 @@ const AuthContextProvider = ({ children }) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
 
   const navigate = useNavigate();
 
@@ -70,6 +71,10 @@ const AuthContextProvider = ({ children }) => {
     fire.auth().signOut();
   };
 
+  const resetSentPassword = () => {
+    fire.auth().sendPasswordResetEmail(email);
+  };
+
   // !
 
   const authListener = () => {
@@ -86,7 +91,7 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     authListener();
   }, []);
-  console.log(user);
+  // console.log(user);
   const values = {
     user,
     email,
@@ -103,6 +108,10 @@ const AuthContextProvider = ({ children }) => {
     handleLogin,
     handleLogout,
     handleSignUp,
+    resetSentPassword,
+
+    setResetSent,
+    resetSent,
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
