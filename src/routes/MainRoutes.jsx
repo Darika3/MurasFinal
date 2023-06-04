@@ -17,7 +17,8 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 import MultidaysTour from "../components/Tours/MultidaysTour";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
-import TrekkingTours from "../components/Tours/TrekkingTours";
+import Forum from "../components/Forum/Forum";
+import Chat from "../components/Chat/Chat";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -27,14 +28,10 @@ const MainRoutes = () => {
     { link: "/clothes", element: <Clothes />, id: 4 },
     { link: "/souvenirs", element: <Souvenirs />, id: 5 },
 
-<<<<<<< HEAD
-    { link: "/trekking", element: <TrekkingTours />, id: 6 },
-=======
-    { link: "/trek", element: <TrekkingTours />, id: 6 },
+    { link: "/trek", element: <TrekkingTours/>, id: 6 },
     { link: "/multidays", element: <MultidaysTour />, id: 7 },
     { link: "/horse", element: <HorseRiding />, id: 16 },
 
->>>>>>> 32055b89dc9e8e40048d7741ba830fc1a5aaf3e7
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },
@@ -43,12 +40,22 @@ const MainRoutes = () => {
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
     { link: "/fav", element: <FavPage />, id: 15 },
+    { link: "/forum", element: <Forum/>, id: 17 },
   ];
+  const USER_ROUTES = [
+    { link: "/chat", element: <Chat/>, id: 18 },
+  ]
+const user = false;
   return (
     <>
       <Routes>
         {PUBLIC_ROUTES.map((item) => (
           <Route path={item.link} element={item.element} key={item.id} />
+        ))}
+      </Routes>
+      <Routes>
+        {USER_ROUTES.map((item)=>(
+          <Route path={item.link} element = {item.element} exact = {true}/>
         ))}
       </Routes>
     </>

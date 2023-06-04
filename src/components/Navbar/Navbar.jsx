@@ -33,6 +33,7 @@ const pages = [
   { name: "Products", link: "/products", id: 3 },
   { name: "Tours", link: "/tours", id: 4 },
   { name: "Admin", link: "/admin", id: 5 },
+  { name: "Forum", link: "/forum", id: 6 },
 ];
 
 const Navbar = () => {
@@ -96,6 +97,7 @@ useEffect(() => {
           { title: "Products", link: "/products" },
           { title: "Tours", link: "/products" },
           { title: "Admin", link: "/admin" },
+          { title: "Forum", link: "/forum" },
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
