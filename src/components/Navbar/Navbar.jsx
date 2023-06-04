@@ -97,7 +97,7 @@ const Navbar = () => {
           { title: "Home", link: "/" },
           { title: "Our Culture", link: "/culture" },
           { title: "Products", link: "/products" },
-          { title: "Tours", link: "/products" },
+          { title: "Tours", link: "/tours" },
           { title: "Forum", link: "/forum" },
           { title: "Admin", link: "/admin" },
         ].map((text, index) => (
