@@ -9,6 +9,7 @@ export const useProduct = () => useContext(productsContext);
 const INIT_STATE = {
   products: [],
   productDetails: [],
+  commentsState: {},
 };
 // функция reducer
 const reducer = (state = INIT_STATE, action) => {
@@ -17,6 +18,8 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, products: action.payload };
     case PRODUCTS.GET_PRODUCT_DETAILS:
       return { ...state, productDetails: action.payload };
+    case "ADD_COMMENTS":
+      return { ...state, commentsState: action.payload };
     default:
       return state;
   }
@@ -81,8 +84,26 @@ const ProductContextProvider = ({ children }) => {
     const url = `${location.pathname}?${filter.toString()}`;
     navigate(url);
   };
+  // !Comments
 
+  async function getComments(obj) {
+    state.productDetails.comment.push(obj);
+    const newObj = {
+      ...state.productDetails,
+      comment: state.productDetails.comment,
+    };
+    await axios.patch(`${API}/${state.productDetails.id}`, newObj);
+  }
+
+  function setCommentsState(a) {
+    dispatch({
+      type: "ADD_COMMENTS",
+      payload: a,
+    });
+  }
   const values = {
+    getComments,
+    setCommentsState,
     filterByTtype,
     getFilterFood,
     getFilterSouvenirs,

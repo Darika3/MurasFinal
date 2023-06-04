@@ -78,7 +78,7 @@ const TrekkingTours = () => {
                       />
                     ))}
                   </span>
-                  <button id="detailTour">Read More</button>
+                  <button id="detailTour" onClick={()=> navigate("/toursDetails/:id")}>Read More</button>
                 </div>
               </div>
             ) : null

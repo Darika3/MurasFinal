@@ -1,8 +1,6 @@
 .tours-detail_container{
 width: 100%;
 height: 100vh;
-display: flex;
-align-items: center;
 /* justify-content: flex-start; */
 padding-left: 150px;
 gap: 70px;
@@ -10,9 +8,10 @@ margin: 0;
 background-image: url("https://mobimg.b-cdn.net/v3/fetch/13/1364b7657d27e83259f7738c08c8cd96.jpeg?w=1200&r=0.5625");
 background-size: cover;
 background-repeat: no-repeat;
-/* opacity: 0.9; */
-
-
+}
+.tours-detail_container-m{
+    display: flex;
+align-items: center;
 }
 .tDet-left{
     width: 35%;

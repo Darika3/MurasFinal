@@ -21,6 +21,7 @@ import FavPage from "../FavPage";
 import BuyNow from "../components/Cart/BuyNow";
 import Forum from "../components/Forum/Forum";
 import Topic from "../components/Forum/Topic";
+import ToursDeatails from "../components/Tours/ToursDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -41,14 +42,11 @@ const MainRoutes = () => {
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
     { link: "/fav", element: <FavPage />, id: 15 },
-    { link: "/buy", element: <BuyNow />, id: 16 },
-    { link: "/forum", element: <Forum />, id: 16 },
-    { link: "/topic/:id", element: <Topic />, id: 16 },
+    { link: "/buy", element: <BuyNow />, id: 17 },
+    { link: "/forum", element: <Forum />, id: 18 },
+    { link: "/topic/:id", element: <Topic />, id: 19 },
+    { link: "/toursDetails/:id", element: <ToursDeatails/>, id: 20 },
   ];
-  const USER_ROUTES = [
-    { link: "/chat", element: <Chat/>, id: 18 },
-  ]
-const user = false;
   return (
     <>
       <Routes>
@@ -56,11 +54,7 @@ const user = false;
           <Route path={item.link} element={item.element} key={item.id} />
         ))}
       </Routes>
-      <Routes>
-        {USER_ROUTES.map((item)=>(
-          <Route path={item.link} element = {item.element} exact = {true}/>
-        ))}
-      </Routes>
+      
     </>
   );
 };
