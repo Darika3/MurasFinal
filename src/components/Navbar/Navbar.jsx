@@ -32,23 +32,26 @@ const pages = [
   { name: "Our Culture", link: "/culture", id: 2 },
   { name: "Products", link: "/products", id: 3 },
   { name: "Tours", link: "/tours", id: 4 },
+  { name: "Forum", link: "/forum", id: 6 },
   { name: "Admin", link: "/admin", id: 5 },
 ];
 
 const Navbar = () => {
-
-//! search 
-const [searchParams, setSearchParams] = useSearchParams();
-const [search, setSearch] = useState(searchParams.get('q') || '')
-useEffect(() => {
-  setSearchParams({
-    q: search,
-  });
-}, [search]);
-// !
+  //! search
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+  // !
   const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
-  const { handleLogout, user:{email}  } = useAuth();
+  const {
+    handleLogout,
+    user: { email },
+  } = useAuth();
 
   // useEffect(() => {
   //   if (localStorage.getItem("tokens")) {
@@ -95,6 +98,7 @@ useEffect(() => {
           { title: "Our Culture", link: "/culture" },
           { title: "Products", link: "/products" },
           { title: "Tours", link: "/products" },
+          { title: "Forum", link: "/forum" },
           { title: "Admin", link: "/admin" },
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -139,10 +143,18 @@ useEffect(() => {
         </div>
         <div className="item-search">
           <img src={searchIcon} alt="searchIcon" />
-          <input onChange={(e)=> setSearch(e.target.value)} value={search} type="text"  />
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            type="text"
+          />
         </div>
         <div className="item-icons">
-          <img onClick={()=> navigate("/fav")} src={favoriteIcon} alt="favoriteIcon" />
+          <img
+            onClick={() => navigate("/fav")}
+            src={favoriteIcon}
+            alt="favoriteIcon"
+          />
           <img
             onClick={() => navigate("/cart")}
             src={shopIcon}
@@ -166,9 +178,16 @@ useEffect(() => {
         </div>
       </div>
       {openModal && (
-        <div className="modal-profile" >
-          <p style={{paddingBottom:"3px"}} onClick={() => navigate("/authtor")}>SignIn</p>
-          <p  style={{paddingBottom:"5px"}}onClick={handleLogout} >Logout</p>
+        <div className="modal-profile">
+          <p
+            style={{ paddingBottom: "3px" }}
+            onClick={() => navigate("/authtor")}
+          >
+            SignIn
+          </p>
+          <p style={{ paddingBottom: "5px" }} onClick={handleLogout}>
+            Logout
+          </p>
           <hr></hr>
           <p>{email ? email : null}</p>
         </div>
@@ -196,7 +215,7 @@ useEffect(() => {
   // <div>
   //     <div className="nav-container">
   //       <div className="item-logo">
-  
+
   //         <img onClick={() => navigate("/main")} src={logo} />
   //       </div>
   //       <div className="item-menu">

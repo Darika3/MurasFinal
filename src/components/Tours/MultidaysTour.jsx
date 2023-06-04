@@ -50,38 +50,40 @@ const MultidaysTour = () => {
             <img className="socialIcons" src={facebook} alt="" />
             <img className="socialIcons" src={phoneIcon} alt="" />
           </div>
-          {products.map((item) =>
-            item.type === "multidays" ? (
-              <div className="toursCard" key={item.id}>
-                <img className="toursCardImg" src={item.image} alt="" />
-                <div className="tourInformationCardContiner">
-                  <h2>{item.name}</h2>
-                  <ul className="tourInformationCard">
-                    <li>Altitude: {item.altitude}</li>
-                    <li>Season: {item.season}</li>
-                    <li>Trekking Route: {item.route}</li>
-                    <li>Total Distance: {item.distance}</li>
-                    <li>Total time: {item.time}</li>
-                  </ul>
-                  <span>
-                    {[1, 2, 3, 4, 5].map((value) => (
-                      <img
-                        key={value}
-                        src={
-                          value <= item.rating
-                            ? starRatingFilled
-                            : starRatingEmpty
-                        }
-                        alt=""
-                        onClick={() => handleRatingClick(value, item.id)}
-                      />
-                    ))}
-                  </span>
-                  <button id="detailTour">Read More</button>
+          <div className="toursCardContainer">
+            {products.map((item) =>
+              item.type === "multidays" ? (
+                <div className="toursCard" key={item.id}>
+                  <img className="toursCardImg" src={item.image} alt="" />
+                  <div className="tourInformationCardContiner">
+                    <h2>{item.name}</h2>
+                    <ul className="tourInformationCard">
+                      <li>Altitude: {item.altitude}</li>
+                      <li>Season: {item.season}</li>
+                      <li>Trekking Route: {item.route}</li>
+                      <li>Total Distance: {item.distance}</li>
+                      <li>Total time: {item.time}</li>
+                    </ul>
+                    <span>
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <img
+                          key={value}
+                          src={
+                            value <= item.rating
+                              ? starRatingFilled
+                              : starRatingEmpty
+                          }
+                          alt=""
+                          onClick={() => handleRatingClick(value, item.id)}
+                        />
+                      ))}
+                    </span>
+                    <button id="detailTour">Read More</button>
+                  </div>
                 </div>
-              </div>
-            ) : null
-          )}
+              ) : null
+            )}
+          </div>
         </div>
       </div>
     </>

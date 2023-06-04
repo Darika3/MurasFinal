@@ -1329,24 +1329,6 @@
       "rating": 2
     },
     {
-      "name": "Horse Riding Tour",
-      "description": "Very cool",
-      "price": 3333,
-      "image": "https://www.travel-kyrgyzstan.com/wp-content/uploads/2013/08/IMG_1243.jpg",
-      "type": "horse",
-      "category": "tours",
-      "distance": "23km",
-      "ingredients": "",
-      "preparationTime": "",
-      "raiting": "3",
-      "altitude": "dsfdghjkl-zxsdfghj-sdfghjk",
-      "season": "Summer",
-      "route": "very long ",
-      "time": "33min",
-      "id": 22,
-      "rating": 5
-    },
-    {
       "name": "Ejeshka krutaya",
       "description": "ezdit verhom ",
       "price": 2345,
@@ -1362,7 +1344,42 @@
       "route": "sdfhgjkhgb-lkjhgfgiop-pokjhg",
       "time": "34min",
       "id": 23,
-      "rating": 3
+      "rating": 5
+    },
+    {
+      "name": "VKUSNAYA MEERIM",
+      "description": "chuchuchu",
+      "price": 2345,
+      "image": "https://www.oliver.com.es/wp-content/uploads/kyrgyzstan_trek_islam_adventure_054.jpg",
+      "type": "horse",
+      "category": "tours",
+      "distance": "dsdfggwr",
+      "ingredients": "",
+      "preparationTime": "",
+      "raiting": "0",
+      "altitude": "sdfgv",
+      "season": "w34edswxcv ",
+      "route": "etgesdcxfv",
+      "time": "345trfds",
+      "id": 24,
+      "rating": 4
+    },
+    {
+      "name": "NEW MEERIM",
+      "description": "dcxfcgh",
+      "price": 3456,
+      "image": "https://www.oliver.com.es/wp-content/uploads/kyrgyzstan_trek_islam_adventure_054.jpg",
+      "type": "Horse Tours",
+      "category": "tours",
+      "distance": "e4r5tygfc",
+      "ingredients": "",
+      "preparationTime": "",
+      "raiting": "3",
+      "altitude": "cfvgxcdf",
+      "season": "trexdcfvgbh",
+      "route": "xdfcvgbhjvc",
+      "time": "sdfgty",
+      "id": 25
     }
   ]
 }
