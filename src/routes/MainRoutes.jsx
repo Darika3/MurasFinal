@@ -19,6 +19,7 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
 import CreditCard from "../components/creditCard/Card";
+import ToursDeatails from "../components/Tours/ToursDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -42,6 +43,7 @@ const MainRoutes = () => {
     { link: "/fav", element: <FavPage/>, id: 15 },
     // { link: "/chat", element: <Chat/>, id: 17},
     { link: "/creditCard", element: <CreditCard/>, id: 18},
+    { link: "/toursDetail", element: <ToursDeatails/>, id: 19},
   ];
   return (
     <>

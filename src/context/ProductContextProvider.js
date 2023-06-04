@@ -49,6 +49,7 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
     navigate("/products");
   };
+  // !tourDetails
   const getProductDetails = async (id) => {
     const { data } = await axios(`${API}/${id}`);
     dispatch({
@@ -66,7 +67,7 @@ const ProductContextProvider = ({ children }) => {
   function getFilterFood() {
     return state.products.filter((elem) => elem.category === "food");
   }
-  // filer
+  // !filer
   const location = useLocation();
   // console.log(location.pathname);
 
