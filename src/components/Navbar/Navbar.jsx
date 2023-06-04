@@ -26,16 +26,9 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import { useAuth } from "../../context/AuthContextProvider";
 import { Badge } from "@mui/base";
+import { ADMIN } from "../../helpers/const";
 
-const pages = [
-  { name: "Home", link: "/", id: 1 },
-  { name: "Our Culture", link: "/culture", id: 2 },
-  { name: "Products", link: "/products", id: 3 },
-  { name: "Tours", link: "/tours", id: 4 },
-  { name: "Forum", link: "/forum", id: 6 },
-  { name: "Admin", link: "/admin", id: 5 },
-  { name: "Forum", link: "/forum", id: 6 },
-];
+let pages = [];
 
 const Navbar = () => {
   //! search
@@ -94,30 +87,37 @@ const Navbar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[
-          { title: "Home", link: "/" },
-          { title: "Our Culture", link: "/culture" },
-          { title: "Products", link: "/products" },
-          { title: "Tours", link: "/tours" },
-          { title: "Forum", link: "/forum" },
-          { title: "Admin", link: "/admin" },
-          { title: "Forum", link: "/forum" },
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {/* {if(index === 0){ 
+        {email === ADMIN
+          ? [
+              { title: "Home", link: "/" },
+              { title: "Our Culture", link: "/culture" },
+              { title: "Products", link: "/products" },
+              { title: "Tours", link: "/tours" },
+              { title: "Forum", link: "/forum" },
+              { title: "Admin", link: "/admin" },
+            ]
+          : [
+              { title: "Home", link: "/" },
+              { title: "Our Culture", link: "/culture" },
+              { title: "Products", link: "/products" },
+              { title: "Tours", link: "/tours" },
+              { title: "Forum", link: "/forum" },
+            ].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {/* {if(index === 0){ 
  
                 }} 
                  <HomeIcon onClick={()=>navigate('/')} /> */}
-              </ListItemIcon>
-              <ListItemText
-                primary={text.title}
-                onClick={() => navigate(`${text.link}`)}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text.title}
+                    onClick={() => navigate(`${text.link}`)}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
       </List>
       <Divider />
       <List sx={{ width: "90%", display: "flex" }}>
@@ -129,7 +129,24 @@ const Navbar = () => {
       </List>
     </Box>
   );
-
+  if (email === ADMIN) {
+    pages = [
+      { name: "Home", link: "/" },
+      { name: "Our Culture", link: "/culture" },
+      { name: "Products", link: "/products" },
+      { name: "Tours", link: "/tours" },
+      { name: "Forum", link: "/forum" },
+      { name: "Admin", link: "/admin" },
+    ];
+  } else {
+    pages = [
+      { name: "Home", link: "/" },
+      { name: "Our Culture", link: "/culture" },
+      { name: "Products", link: "/products" },
+      { name: "Tours", link: "/tours" },
+      { name: "Forum", link: "/forum" },
+    ];
+  }
   return (
     <div>
       <div className="nav-container">
