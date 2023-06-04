@@ -1,0 +1,67 @@
+.discussion-container {
+  /* margin-top: 400px;
+      margin-left: 100px; */
+  background-color: #223c5d;
+  height: 90vh;
+}
+
+.discussion-container h1 {
+  font-size: 3em;
+  text-align: center;
+  color: white;
+}
+
+.discussion-form textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 100px;
+  padding: 10px;
+  resize: vertical;
+  margin: 0 auto;
+}
+
+.discussion-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-discussion-btn {
+  background-color: white;
+  color: #223c5d;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  align-self: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.discussion-block {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.discussion-user {
+  font-weight: bold;
+}
+
+.discussion {
+  margin-top: 5px;
+}
+@media screen and (max-width: 768px) {
+  .discussion-form textarea {
+    max-width: 90%;
+  }
+
+  .add-discussion-btn {
+    width: 90%;
+  }
+}
