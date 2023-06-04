@@ -180,13 +180,6 @@
       "distance": "",
       "ingredients": "",
       "preparationTime": "",
-<<<<<<< HEAD
-      "id": 10
-    },
-    {
-      "rating": 2,
-      "id": 11
-=======
       "raiting": 0,
       "altitude": "",
       "season": "",
@@ -295,7 +288,6 @@
       "route": "",
       "time": "",
       "id": 17
->>>>>>> f308a094ad01f253c083a55408178c309f4a275a
     }
   ]
 }
