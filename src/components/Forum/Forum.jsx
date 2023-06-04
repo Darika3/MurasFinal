@@ -45,7 +45,7 @@ const Forum = () => {
               sx={{ marginBottom: "20px" }}
               width={"80%"}
               height={60}
-              onClick={() => navigate(`topic/${item.id}`)}
+              onClick={() => navigate(`/topic/${item.id}`)}
             >
               {item.title}
             </Grid>
