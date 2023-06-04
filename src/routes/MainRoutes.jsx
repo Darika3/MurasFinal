@@ -13,11 +13,12 @@ import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
 import EditProduct from "../components/Products/Crud/EditProduct";
-import TrekkingTours from "../components/Tours/TrekkingTours";
+
 import MultidaysTour from "../components/Tours/MultidaysTour";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
 import TrekkingTours from "../components/Tours/TrekkingTours";
+import BuyNow from "../components/Cart/BuyNow";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -39,6 +40,7 @@ const MainRoutes = () => {
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
     { link: "/fav", element: <FavPage />, id: 15 },
+    { link: "/buy", element: <BuyNow />, id: 16 },
   ];
   return (
     <>

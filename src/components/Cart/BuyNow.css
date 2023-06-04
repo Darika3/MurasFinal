@@ -1,0 +1,131 @@
+#paymentModal {
+  background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/aa/d5/27/kel-suu-lake.jpg?w=1200&h=1200&s=1");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  padding: 0;
+}
+
+#paymentLeft {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+}
+#visa {
+  background-color: #223c5d;
+  width: 560px;
+  height: 360px;
+  border-radius: 30px;
+  padding: 5% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#chipBlock {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 30%;
+}
+
+#chip {
+  width: 80px;
+  height: 65px;
+  margin: 0;
+  margin-top: 40px;
+}
+#trio {
+  width: 150px;
+  height: 130px;
+  margin: 0;
+}
+#cardNum {
+  margin: 0;
+  color: white;
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: space-between;
+  width: 90%;
+}
+#visaBottom {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+#cardholder {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  font-weight: 200;
+}
+#expdate {
+  margin: 0;
+  color: white;
+  font-size: 24px;
+}
+
+#paymentRight {
+  width: 45%;
+  height: 80vh;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  margin: 0;
+  margin-top: 5%;
+}
+
+#visaInfo {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0;
+}
+#visaInfo input {
+  margin-bottom: 2%;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+#visaInfo h3 {
+  margin-bottom: 10%;
+  color: grey;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: normal;
+}
+
+#pay {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 7%;
+  font-size: 26px;
+  color: grey;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#pay h2,
+h3 {
+  font-weight: 400;
+}
+
+#buyBtn {
+  width: 25%;
+  height: 8%;
+  align-self: center;
+  margin: 0;
+  margin-top: 10%;
+  background-color: #223c5d;
+  border-radius: 5px;
+  color: white;
+  font-size: 17px;
+  border: none;
+}
