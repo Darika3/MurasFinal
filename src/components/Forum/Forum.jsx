@@ -2,6 +2,7 @@ import { Box, Grid, Skeleton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForum } from "../../context/ForumContextProvider";
+import Navbar from "../Navbar/Navbar";
 
 const Forum = () => {
   const { getTopics, topics, addTopic, deleteTopic } = useForum();

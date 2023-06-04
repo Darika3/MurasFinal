@@ -1396,14 +1396,11 @@
       "season": "wertghyuj",
       "route": "rfgthyju",
       "time": "defrgthju",
-      "id": 26
+      "id": 26,
+      "rating": 5
     }
   ],
   "topics": [
-    {
-      "title": "HelloDori",
-      "id": 10
-    },
     {
       "title": "Meerim",
       "id": 11

@@ -271,3 +271,31 @@
   background: #ffffff;
   border-radius: 50px;
 }
+@media (max-width: 768px) {
+  .toursCard {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+  .toursCardContainer {
+    margin: 20px;
+  }
+  #sideBarIcons {
+    display: none;
+  }
+  .toursCardImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .tourInformationCardContiner {
+    margin-top: 20px;
+  }
+
+  .tourInformationCard {
+    height: auto;
+  }
+  .h1Trekking img {
+    width: 90%;
+  }
+}
