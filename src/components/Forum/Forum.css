@@ -4,6 +4,7 @@
   background-position: center;
   background-size: cover;
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: black;
   font-size: 2em;
   font-weight: 400;
   margin-bottom: 20px;
@@ -36,7 +37,7 @@
 }
 
 .forumContainer h1 {
-  color: white;
+  color: #223c5d;
   font-size: 2em;
   margin-bottom: 20px;
 }
