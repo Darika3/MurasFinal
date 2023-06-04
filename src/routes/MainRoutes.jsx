@@ -45,7 +45,7 @@ const MainRoutes = () => {
     { link: "/buy", element: <BuyNow />, id: 16 },
     { link: "/forum", element: <Forum />, id: 16 },
     { link: "/topic/:id", element: <Topic />, id: 16 },
-    { link: "/tourDetails/:id", element: <ToursDeatails />, id: 10 },
+    { link: "/tourDetails/:id", element: <ToursDeatails />, id: 17 },
   ];
   return (
     <>
