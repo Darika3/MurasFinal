@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { API, PRODUCTS } from "../helpers/const";
+import { API, API2, PRODUCTS } from "../helpers/const";
 
 export const productsContext = createContext();
 export const useProduct = () => useContext(productsContext);
