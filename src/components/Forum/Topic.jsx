@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import emptyHeart from "../../assets/image/Vector.png";
 import fullHeart from "../../assets/image/Vector-1.png";
 import { useForum } from "../../context/ForumContextProvider";
-
+import "../Forum/Topic.css";
 function Topic() {
   const { getTopicDetails, topicDetails } = useForum();
   const { email } = useAuth();
@@ -48,10 +48,7 @@ function Topic() {
   return (
     <>
       {/* <Navbar /> */}
-      <div
-        style={{ marginTop: "400px", marginLeft: "100px" }}
-        className="discussion-container"
-      >
+      <div className="discussion-container">
         <h1>{topicDetails.title}</h1>
         <form action="" className="discussion-form">
           <textarea
