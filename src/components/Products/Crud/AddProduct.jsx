@@ -237,7 +237,6 @@ const AddProduct = () => {
             {category === "clothes" && (
               <>
                 <option>Choose type</option>
-
                 <option>Outerwear</option>
                 <option>Headdress</option>
                 <option>Shoes</option>
@@ -264,10 +263,9 @@ const AddProduct = () => {
             {category === "tours" && (
               <>
                 <option>Choose type</option>
-
-                <option>Trekking Tours</option>
-                <option>Multidays Tours</option>
-                <option>Horse Tours</option>
+                <option value="trekking">Trekking Tours</option>
+                <option value="multidays">Multidays Tours</option>
+                <option value="horse">Horse Tours</option>
               </>
             )}
           </select>

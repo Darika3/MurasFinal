@@ -18,7 +18,7 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 // import Chat from "../components/Chat/Chat";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
-import CreditCard from "../components/creditCard/Card";
+import BuyNow from "../components/Cart/BuyNow";
 import ToursDeatails from "../components/Tours/ToursDetails";
 
 const MainRoutes = () => {
@@ -32,7 +32,6 @@ const MainRoutes = () => {
     { link: "/trek", element: <TrekkingTours />, id: 6 },
     { link: "/multidays", element: <MultidaysTour />, id: 7 },
     { link: "/horse", element: <HorseRiding/>, id: 16 },
-
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },
@@ -40,10 +39,9 @@ const MainRoutes = () => {
     { link: "/admin", element: <AddProduct />, id: 12 },
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
-    { link: "/fav", element: <FavPage/>, id: 15 },
-    // { link: "/chat", element: <Chat/>, id: 17},
-    { link: "/creditCard", element: <CreditCard/>, id: 18},
-    { link: "/toursDetail", element: <ToursDeatails/>, id: 19},
+    { link: "/fav", element: <FavPage />, id: 15 },
+    { link: "/buy", element: <BuyNow />, id: 17 },
+    { link: "/toursDetails/:id", element: <ToursDeatails/>, id: 18 },
   ];
   return (
     <>

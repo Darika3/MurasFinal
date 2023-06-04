@@ -88,7 +88,6 @@
 .modal-profile p {
   cursor: pointer;
   word-break: break-all;
-
 }
 @media (max-width: 768px) {
   .item-menu {
@@ -97,7 +96,7 @@
   .item-search {
     display: flex;
     justify-content: flex-start;
-    width: 20%;
+    width: 25%;
   }
   .item-icons {
     display: none;
@@ -107,6 +106,6 @@
     display: flex;
   }
 }
-hr{
+hr {
   width: 85%;
 }
