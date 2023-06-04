@@ -13,11 +13,11 @@ import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
 import EditProduct from "../components/Products/Crud/EditProduct";
+
 import MultidaysTour from "../components/Tours/MultidaysTour";
-import TrekkingTours from "../components/Tours/TrekkingTours";
-// import Chat from "../components/Chat/Chat";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
+import TrekkingTours from "../components/Tours/TrekkingTours";
 import BuyNow from "../components/Cart/BuyNow";
 import Forum from "../components/Forum/Forum";
 import Topic from "../components/Forum/Topic";
@@ -45,7 +45,6 @@ const MainRoutes = () => {
     { link: "/forum", element: <Forum />, id: 16 },
     { link: "/topic/:id", element: <Topic />, id: 16 },
   ];
-
   return (
     <>
       <Routes>
