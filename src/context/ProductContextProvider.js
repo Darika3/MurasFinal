@@ -8,7 +8,7 @@ export const useProduct = () => useContext(productsContext);
 
 const INIT_STATE = {
   products: [],
-  productDetails: {},
+  productDetails: [],
 };
 // функция reducer
 const reducer = (state = INIT_STATE, action) => {
@@ -49,8 +49,9 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
     navigate("/products");
   };
+  // !tourDetails
   const getProductDetails = async (id) => {
-    const { data } = await axios(`${API}/${id}`);
+    const { data } = await axios(`${API}${window.location.search}/${id}`);
     dispatch({
       type: PRODUCTS.GET_PRODUCT_DETAILS,
       payload: data,
@@ -66,7 +67,7 @@ const ProductContextProvider = ({ children }) => {
   function getFilterFood() {
     return state.products.filter((elem) => elem.category === "food");
   }
-  // filer
+  // !filer
   const location = useLocation();
   // console.log(location.pathname);
 
