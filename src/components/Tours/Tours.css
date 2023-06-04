@@ -184,6 +184,8 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   /* height: 100vh; */
   background-color: #435558;
   color: #ffffff;
@@ -193,6 +195,12 @@
   display: flex;
   justify-content: center;
   margin: 50px auto;
+}
+.toursCardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
 }
 .toursCard {
   width: 70%;
@@ -211,6 +219,7 @@
 .tourInformationCardContiner {
   display: flex;
   flex-direction: column;
+
   justify-content: space-around;
 }
 .tourInformationCardContiner h2 {
