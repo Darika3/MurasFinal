@@ -46,7 +46,6 @@ function ToursDetails() {
     setComments([...comments, newComment]);
     setCommentText("");
 
-    // Save comments to local storage
     localStorage.setItem("comments", JSON.stringify([...comments, newComment]));
   };
 
@@ -59,7 +58,6 @@ function ToursDetails() {
       setIsLiked(true);
     }
 
-    // Save likes count and liked status to local storage
     localStorage.setItem("likes", isLiked ? likes - 1 : likes + 1);
     localStorage.setItem("isLiked", isLiked ? "false" : "true");
   };
@@ -67,13 +65,11 @@ function ToursDetails() {
   useEffect(() => {
     getProductDetails(id);
 
-    // Load comments from local storage
     const storedComments = localStorage.getItem("comments");
     if (storedComments) {
       setComments(JSON.parse(storedComments));
     }
 
-    // Load likes count and liked status from local storage
     const storedLikes = localStorage.getItem("likes");
     const storedIsLiked = localStorage.getItem("isLiked");
     if (storedLikes) {
@@ -89,11 +85,13 @@ function ToursDetails() {
       <Navbar />
       <div className="tours-detail_container">
         <div className="tDet-left">
-          <img
-            style={{ width: "100%", height: "100%" }}
-            src={productDetails.image}
-            alt="picture"
-          />
+          {productDetails && (
+            <img
+              style={{ width: "100%", height: "100%" }}
+              src={productDetails.image}
+              alt="picture"
+            />
+          )}
         </div>
         <div className="tDet-right">
           <div className="textDetails">
@@ -104,7 +102,7 @@ function ToursDetails() {
           </div>
           {showDetail1 && (
             <div className="textDetails-content">
-              {productDetails.description}
+              {productDetails && productDetails.description}
             </div>
           )}
 
@@ -119,8 +117,8 @@ function ToursDetails() {
               style={{ fontSize: "30px", margin: "0" }}
               className="textDetails-content"
             >
-              {productDetails.time} <br />
-              {productDetails.distance}
+              {productDetails && productDetails.time} <br />
+              {productDetails && productDetails.distance}
             </div>
           )}
 
@@ -132,8 +130,8 @@ function ToursDetails() {
           </div>
           {showDetail3 && (
             <div className="textDetails-content">
-              {productDetails.description}
-              {productDetails.type}
+              {productDetails && productDetails.description}
+              {productDetails && productDetails.type}
             </div>
           )}
         </div>
