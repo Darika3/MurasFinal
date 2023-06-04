@@ -82,7 +82,7 @@ function ToursDetails() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="tours-detail_container">
         <div className="tDet-left">
           {productDetails && (
