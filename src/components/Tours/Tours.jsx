@@ -50,10 +50,12 @@ const Tours = () => {
             <p className="text">Horseback Riding Tours</p>
           </div>
         </div>
+
         <div className="adaptTours-filter">
           <div>
             <img
               className="adaprTrekking__item-tours"
+              onClick={() => navigate("/trek")}
               src={Trekking}
               alt="Trekking"
             />
@@ -62,6 +64,7 @@ const Tours = () => {
           <div>
             <img
               className="adaptMultidays__item-tours"
+              onClick={() => navigate("/multidays")}
               src={Multidays}
               alt="Multidays"
             />
@@ -70,6 +73,7 @@ const Tours = () => {
           <div>
             <img
               className="adaptHorse__item-tours"
+              onClick={() => navigate("/horse")}
               src={HorseBack}
               alt="HorseBack"
             />

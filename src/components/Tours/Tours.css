@@ -141,30 +141,54 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .tours-filter {
     display: none;
   }
   .adaptTours-filter {
     display: flex;
+    width: 100%;
+    margin-left: 50px;
+  }
+  .adaprTrekking__item-tours,
+  .adaptMultidays__item-tours,
+  .adaptHorse__item-tours {
     width: 80%;
   }
-  .adaptTrekking__item-tours img,
-  .adaptMultidays__item-tours img,
-  .adaptHorse__item-tours img {
-    width: 60%;
+  .toursText {
+    top: -155px;
+    left: -45px;
+    font-size: 1.5em;
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .tours-filter {
     display: none;
   }
   .adaptTours-filter {
     display: flex;
-    width: 70%;
+    width: 100%;
+    margin-left: 40px;
   }
   .toursText {
-    text-align: center;
+    top: -155px;
+    left: -38px;
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 321px) {
+  .tours-filter {
+    display: none;
+  }
+  .adaptTours-filter {
+    display: flex;
+    width: 100%;
+    margin-left: 32px;
+  }
+  .toursText {
+    top: -155px;
+    left: -32px;
+    font-size: 1.2em;
   }
 }
 
@@ -184,9 +208,10 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   /* height: 100vh; */
   background-color: #435558;
-  color: #ffffff;
 }
 .h1Trekking {
   /* margin: 0 35%; */
@@ -194,11 +219,19 @@
   justify-content: center;
   margin: 50px auto;
 }
+.toursCardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+}
 .toursCard {
+  color: #ffffff;
   width: 70%;
   height: 700px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 #forflexingcardandsocial {
   display: flex;
@@ -206,11 +239,11 @@
 .toursCardImg {
   width: 600px;
   height: 100%;
-  margin-right: 40px;
 }
 .tourInformationCardContiner {
   display: flex;
   flex-direction: column;
+
   justify-content: space-around;
 }
 .tourInformationCardContiner h2 {
@@ -230,11 +263,39 @@
   font-size: 24px;
 }
 #detailTour {
-  width: 300px;
+  width: 230px;
   height: 60px;
   color: #435558;
   font-size: 24px;
   border: none;
   background: #ffffff;
   border-radius: 50px;
+}
+@media (max-width: 768px) {
+  .toursCard {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+  .toursCardContainer {
+    margin: 20px;
+  }
+  #sideBarIcons {
+    display: none;
+  }
+  .toursCardImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .tourInformationCardContiner {
+    margin-top: 20px;
+  }
+
+  .tourInformationCard {
+    height: auto;
+  }
+  .h1Trekking img {
+    width: 90%;
+  }
 }

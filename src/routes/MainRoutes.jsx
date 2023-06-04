@@ -19,7 +19,8 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
 import BuyNow from "../components/Cart/BuyNow";
-import ToursDeatails from "../components/Tours/ToursDetails";
+import Forum from "../components/Forum/Forum";
+import Topic from "../components/Forum/Topic";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -40,8 +41,9 @@ const MainRoutes = () => {
     { link: "/authtor", element: <Auth />, id: 13 },
     { link: "/edit/:id", element: <EditProduct />, id: 14 },
     { link: "/fav", element: <FavPage />, id: 15 },
-    { link: "/buy", element: <BuyNow />, id: 17 },
-    { link: "/toursDetails/:id", element: <ToursDeatails/>, id: 18 },
+    { link: "/buy", element: <BuyNow />, id: 16 },
+    { link: "/forum", element: <Forum />, id: 16 },
+    { link: "/topic/:id", element: <Topic />, id: 16 },
   ];
   const USER_ROUTES = [
     { link: "/chat", element: <Chat/>, id: 18 },
