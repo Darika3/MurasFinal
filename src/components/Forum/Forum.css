@@ -23,7 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: black;
   font-size: 2em;
   font-weight: 400;
   margin-bottom: 20px;
@@ -39,7 +39,7 @@ body {
 }
 
 .forumContainer h1 {
-  color: white;
+  color: #223c5d;
   font-size: 2em;
   margin-bottom: 20px;
 }
