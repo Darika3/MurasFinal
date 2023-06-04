@@ -51,14 +51,17 @@ function ToursDetails() {
   };
 
   const handleLikeClick = () => {
-    if (!isLiked) {
+    if (isLiked) {
+      setLikes(likes - 1);
+      setIsLiked(false);
+    } else {
       setLikes(likes + 1);
       setIsLiked(true);
-
-      // Save likes count and liked status to local storage
-      localStorage.setItem("likes", likes + 1);
-      localStorage.setItem("isLiked", "true");
     }
+
+    // Save likes count and liked status to local storage
+    localStorage.setItem("likes", isLiked ? likes - 1 : likes + 1);
+    localStorage.setItem("isLiked", isLiked ? "false" : "true");
   };
 
   useEffect(() => {
