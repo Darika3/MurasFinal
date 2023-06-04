@@ -1,9 +1,12 @@
-.forumContainer {
+body {
   background-image: url("../../assets/image/forumBg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.forumContainer {
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
