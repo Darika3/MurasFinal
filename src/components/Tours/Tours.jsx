@@ -50,6 +50,7 @@ const Tours = () => {
             <p className="text">Horseback Riding Tours</p>
           </div>
         </div>
+        
         <div className="adaptTours-filter">
           <div>
             <img
