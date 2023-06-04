@@ -17,6 +17,7 @@ const Clothes = ({}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const clothes = getFilterClothes()
 
+  const {filterByTtype} = useProduct();
   useEffect(() => {
     getProducts();
   }, []);
@@ -89,9 +90,9 @@ const handChange = (e, p)=>{      //event, page(значение кнопки)
       </div>
       <div id="clothes" className="product__food_card-container">
         <div className="item_filter-btn">
-          <button>Outerwear</button>
-          <button>Headdress</button>
-          <button>Shoes</button>
+          <button  onClick={(e)=>filterByTtype("type", "Outerwear")} value = {"Outerwear"}>Outerwear</button>
+          <button onClick={(e)=>filterByTtype("type", "Headdress")} value = {"Headdress"}>Headdress</button>
+          <button onClick={(e)=>filterByTtype("type", "Shoes")} value = {"Shoes"}>Shoes</button>
         </div>
         <div style= {{display: "flex", flexDirection: "column",}}>
         <div style={{ display: "flex", flexWrap: "wrap" }}>

@@ -51,6 +51,10 @@ export default function Auth() {
 
     handleLogin,
     handleSignUp,
+    resetSentPassword,
+
+    resetSent,
+    setResetSent,
   } = useAuth();
 
   const handleSubmit = (event) => {
@@ -60,6 +64,7 @@ export default function Auth() {
       email: data.get("email"),
       password: data.get("password"),
     });
+   
   };
 
   return (
@@ -82,6 +87,7 @@ export default function Auth() {
               {/* <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
             <LockOutlinedIcon />
           </Avatar> */}
+          {/* тут надо добавить поле для воссстановления пароля  */}
               {hasAccount ? (
                 <Typography
                   sx={{ fontSize: "32px" }}
@@ -137,6 +143,7 @@ export default function Auth() {
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
                 />
+                {/* а тут кнопку для восстановления  */}
                 {hasAccount ? (
                   <Button
                     type="submit"
@@ -161,6 +168,7 @@ export default function Auth() {
                 <Grid container>
                   <Grid item xs>
                     {hasAccount ? (
+                      <>
                       <Link
                         href="#"
                         variant="body2"
@@ -169,6 +177,16 @@ export default function Auth() {
                       >
                         {"Еще нет акккаунта? Зарегистрироваться"}
                       </Link>
+                      <Link
+                      href="#"
+                      variant="body2"
+                      sx={{ color: "white", ml: 1 }}
+                      onCl onClick={() => setHasAccount(!hasAccount)}
+                    >
+                      <br />
+                     {" Забыли пароль?"}
+                    </Link>
+                    </>
                     ) : (
                       <Link
                         href="#"

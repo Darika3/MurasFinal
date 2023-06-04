@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import logo from "../../assets/image/logo.svg";
 import searchIcon from "../../assets/image/searchIcon.png";
 import favoriteIcon from "../../assets/image/favoritesIcon.svg";
@@ -36,15 +36,25 @@ const pages = [
 ];
 
 const Navbar = () => {
+
+//! search 
+const [searchParams, setSearchParams] = useSearchParams();
+const [search, setSearch] = useState(searchParams.get('q') || '')
+useEffect(() => {
+  setSearchParams({
+    q: search,
+  });
+}, [search]);
+// !
   const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
   const { handleLogout, user:{email}  } = useAuth();
 
-  useEffect(() => {
-    if (localStorage.getItem("tokens")) {
-      // checkAuth();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("tokens")) {
+  //     // checkAuth();
+  //   }
+  // }, []);
 
   const handleMouseOpen = () => {
     setOpenModal(true);
@@ -129,7 +139,7 @@ const Navbar = () => {
         </div>
         <div className="item-search">
           <img src={searchIcon} alt="searchIcon" />
-          <input type="text" />
+          <input onChange={(e)=> setSearch(e.target.value)} value={search} type="text"  />
         </div>
         <div className="item-icons">
           <img onClick={()=> navigate("/fav")} src={favoriteIcon} alt="favoriteIcon" />
@@ -186,6 +196,7 @@ const Navbar = () => {
   // <div>
   //     <div className="nav-container">
   //       <div className="item-logo">
+  
   //         <img onClick={() => navigate("/main")} src={logo} />
   //       </div>
   //       <div className="item-menu">

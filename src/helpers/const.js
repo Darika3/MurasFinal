@@ -13,4 +13,4 @@ export const FAV = {
   GET_FAV_LENGTH: "GET_FAV_LENGTH",
 };
 
-export const ADMIN = "vsesletelo.com";
+export const ADMIN = "admin@gmail.com";

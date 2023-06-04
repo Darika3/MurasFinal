@@ -53,7 +53,7 @@ const FavoriteContextProvider = ({ children }) => {
     };
     // проверка продукта
     let productToFind = favorite.products.filter(
-      (elem) => (elem.item.id = product.id)
+      (elem) => elem.item.id === product.id
     );
     // add if not be
     if (productToFind.length === 0) {
