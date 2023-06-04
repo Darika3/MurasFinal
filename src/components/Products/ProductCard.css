@@ -1,151 +1,163 @@
-.card-container{
-    font-family: sans-serif;
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-container {
+  font-family: sans-serif;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.mainImg-card img{
-    width: 100%;
-    height: 350px;
-    border-radius: 10px;
-    border: 2px solid darkorange;
+.cardBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-.card{
-    width: 68%;
-    height: 500px;
-    position: relative;
-    perspective: 1000px;
+.mainImg-card img {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  border: 2px solid darkorange;
 }
-.card-front, .card-back{
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    transition: 1s;
-backface-visibility: hidden;
-border-radius: 10px;
+.card {
+  width: 68%;
+  height: 500px;
+  position: relative;
+  perspective: 1000px;
 }
-.card-front{
-    background-color: #FDF6EE;
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  transition: 1s;
+  backface-visibility: hidden;
+  border-radius: 10px;
 }
-.card-back{
-background-color: #FDF6EE;
-transform: rotateY(180deg);
-padding: 10px 0px 0px 20px;
-
+.card-front {
+  background-color: #fdf6ee;
+}
+.card-back {
+  background-color: #fdf6ee;
+  transform: rotateY(180deg);
+  padding: 10px 0px 0px 20px;
 }
 .card:hover .card-front {
-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .card:hover .card-back {
-    transform: rotateY(360deg);
-    }
-.cardIcon{
-    width: 37%;
-    position: absolute;
-    z-index: 1;
-    top: 320px;
+  transform: rotateY(360deg);
 }
-.mainImg-card{
-    width: 100%;
-    position: absolute;
-    /* top: 10%;
+.cardIcon {
+  width: 37%;
+  position: absolute;
+  z-index: 1;
+  top: 320px;
+}
+.mainImg-card {
+  width: 100%;
+  position: absolute;
+  /* top: 10%;
     left: 8%; */
-   z-index: 15;
+  z-index: 15;
 }
 
-.text-card{
-    font-family: Inter;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 22px;
-    line-height: 120%;
-    text-align: center;
-    color: black;
-    margin-top: 370px ;
-    padding: 0px 5px;
+.text-card {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 120%;
+  text-align: center;
+  color: black;
+  margin-top: 370px;
+  padding: 0px 5px;
 }
-.title_text-card{
-    margin-bottom: 10px;
+.title_text-card {
+  margin-bottom: 10px;
 }
-.card-back p{
-    margin-top: 5px;
-    padding: 5px;
-    font-size: 18px;
-    padding-right: 15px;
-}
-
-.card-btn{
-text-align: center;
-margin: 10px auto;
+.card-back p {
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 18px;
+  padding-right: 15px;
 }
 
-.addCard-btn{
-    width: 70%;
-    border-radius: 10px;
-    background-color: #F68436;
-    color: #fff;
-    padding: 5px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-}
-.addCard-btn:hover{
-    background-color: inherit;
-    border: 1px solid #F68436;
-    color: black;
-}
-.updCard-btn{
-width: 30%;
-height: 30px;
-border: 1px solid #F68436 ;
-border-radius: 10px;
-margin-left: 5px;
-background-color: inherit;
-}
-.updCard-btn:hover{
-    background-color: #F68436;
-    color: #fff;
-}
-@media (max-width:1024px) {
-    .card{
-        width: 30%;}
-}
-@media (max-width:768px) {
-    .card{
-        width: 30%;}
-}
-@media (max-width:650px) {
-    .card{
-        width: 40%;}
-}
-@media (max-width:435px) {
-    .card{
-        width: 60%;}
-}
-@media (max-width:320px) {
-    .card{
-        width: 80%;}
+.card-btn {
+  text-align: center;
+  margin: 10px auto;
 }
 
-
- .mainFavCont{
-
-    background-image: url("https://c.wallhere.com/photos/90/be/1920x1080_px_artistic_background_black_death_grim_reapers_smoke-1530979.jpg!d");
-    width: 100%;
-    height: 100%;
-    
+.addCard-btn {
+  width: 70%;
+  border-radius: 10px;
+  background-color: #f68436;
+  color: #fff;
+  padding: 5px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
-#cardCont{
-  
-    font-family: sans-serif;
-    width: 55%;
-    height: 20%;
+.addCard-btn:hover {
+  background-color: inherit;
+  border: 1px solid #f68436;
+  color: black;
+}
+.updCard-btn {
+  width: 30%;
+  height: 30px;
+  border: 1px solid #f68436;
+  border-radius: 10px;
+  margin-left: 5px;
+  background-color: inherit;
+}
+.updCard-btn:hover {
+  background-color: #f68436;
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  .card {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .cardBox {
     display: flex;
     flex-wrap: wrap;
+  }
+  .card-container {
+    width: 50%;
+  }
+}
+@media (max-width: 426px) {
+  .card-container {
+    width: 100%;
+  }
+}
+/* @media (max-width: 435px) {
+  .card {
+    width: 60%;
+  }
+} */
+@media (max-width: 320px) {
+  .card {
+    width: 90%;
+  }
+}
+
+.mainFavCont {
+  background-image: url("https://c.wallhere.com/photos/90/be/1920x1080_px_artistic_background_black_death_grim_reapers_smoke-1530979.jpg!d");
+  width: 100%;
+  height: 100%;
+}
+#cardCont {
+  font-family: sans-serif;
+  width: 55%;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
   margin: 100px auto;
   margin-bottom: -100px;
-   gap: 30px;
+  gap: 30px;
 }
