@@ -51,17 +51,14 @@ function ToursDetails() {
   };
 
   const handleLikeClick = () => {
-    if (isLiked) {
-      setLikes(likes - 1);
-      setIsLiked(false);
-    } else {
+    if (!isLiked) {
       setLikes(likes + 1);
       setIsLiked(true);
-    }
 
-    // Save likes count and liked status to local storage
-    localStorage.setItem("likes", likes + 1);
-    localStorage.setItem("isLiked", isLiked ? "true" : "false");
+      // Save likes count and liked status to local storage
+      localStorage.setItem("likes", likes + 1);
+      localStorage.setItem("isLiked", "true");
+    }
   };
 
   useEffect(() => {
@@ -79,8 +76,8 @@ function ToursDetails() {
     if (storedLikes) {
       setLikes(parseInt(storedLikes));
     }
-    if (storedIsLiked) {
-      setIsLiked(storedIsLiked === "true");
+    if (storedIsLiked === "true") {
+      setIsLiked(true);
     }
   }, []);
 
