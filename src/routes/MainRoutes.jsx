@@ -21,6 +21,7 @@ import TrekkingTours from "../components/Tours/TrekkingTours";
 import BuyNow from "../components/Cart/BuyNow";
 import Forum from "../components/Forum/Forum";
 import Topic from "../components/Forum/Topic";
+import ToursDeatails from "../components/Tours/ToursDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -44,6 +45,7 @@ const MainRoutes = () => {
     { link: "/buy", element: <BuyNow />, id: 16 },
     { link: "/forum", element: <Forum />, id: 16 },
     { link: "/topic/:id", element: <Topic />, id: 16 },
+    { link: "/tourDetails/:id", element: <ToursDeatails />, id: 10 },
   ];
   return (
     <>

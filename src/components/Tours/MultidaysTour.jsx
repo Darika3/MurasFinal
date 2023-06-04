@@ -95,7 +95,12 @@ const MultidaysTour = () => {
                         />
                       ))}
                     </span>
-                    <button id="detailTour">Read More</button>
+                    <button
+                      onClick={() => navigate(`/tourDetails/${item.id}`)}
+                      id="detailTour"
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               ) : null
