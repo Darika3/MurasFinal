@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../../context/ProductContextProvider";
-import "../Tours/ToursDetails.css";
 import { useAuth } from "../../context/AuthContextProvider";
+import "../Tours/ToursDetails.css";
 import Navbar from "../Navbar/Navbar";
 import emptyHeart from "../../assets/image/Vector.png";
 import fullHeart from "../../assets/image/Vector-1.png";
@@ -62,6 +62,13 @@ function ToursDetails() {
     localStorage.setItem("isLiked", isLiked ? "false" : "true");
   };
 
+  const handleDeleteComment = (id) => {
+    const updatedComments = comments.filter((comment) => comment.id == id);
+    setComments(updatedComments);
+
+    localStorage.setItem("comments", JSON.stringify(updatedComments));
+  };
+
   useEffect(() => {
     getProductDetails(id);
 
@@ -82,86 +89,97 @@ function ToursDetails() {
 
   return (
     <>
-      {/* <Navbar /> */}
-      <div className="tours-detail_container">
-        <div className="tDet-left">
-          {productDetails && (
-            <img
-              style={{ width: "100%", height: "100%" }}
-              src={productDetails.image}
-              alt="picture"
-            />
-          )}
-        </div>
-        <div className="tDet-right">
-          <div className="textDetails">
-            Details:
-            <button className="toggle-button" onClick={toggleDetail1}>
-              {showDetail1 ? "-" : "+"}
-            </button>
+      <div className="tours-detail_container2">
+        <Navbar />
+        <div className="divider"></div>
+        <div className="tours-detail_container">
+          <div className="tDet-left">
+            {productDetails && (
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src={productDetails.image}
+                alt="picture"
+              />
+            )}
           </div>
-          {showDetail1 && (
-            <div className="textDetails-content">
-              {productDetails && productDetails.description}
+          <div className="tDet-right">
+            <div className="textDetails">
+              Details:
+              <button className="toggle-button" onClick={toggleDetail1}>
+                {showDetail1 ? "-" : "+"}
+              </button>
             </div>
-          )}
-
-          <div className="textDetails">
-            Did you know about it?
-            <button className="toggle-button" onClick={toggleDetail2}>
-              {showDetail2 ? "-" : "+"}
-            </button>
-          </div>
-          {showDetail2 && (
-            <div
-              style={{ fontSize: "30px", margin: "0" }}
-              className="textDetails-content"
-            >
-              {productDetails && productDetails.time} <br />
-              {productDetails && productDetails.distance}
-            </div>
-          )}
-
-          <div className="textDetails">
-            Which type of tour is more popular!?
-            <button className="toggle-button" onClick={toggleDetail3}>
-              {showDetail3 ? "-" : "+"}
-            </button>
-          </div>
-          {showDetail3 && (
-            <div className="textDetails-content">
-              {productDetails && productDetails.description}
-              {productDetails && productDetails.type}
-            </div>
-          )}
-        </div>
-        <form action="" className="comment-form">
-          <textarea
-            type="text"
-            placeholder="comment"
-            value={commentText}
-            onChange={handleCommentChange}
-          />
-          <button onClick={handleAddComment} className="add-comment-btn">
-            Add comment
-          </button>
-        </form>
-        <div className="comments-container">
-          {comments &&
-            comments.map((comment) => (
-              <div key={comment.id} className="comment-block">
-                <p className="comment-user">{comment.user}</p>
-                <p className="comment">{comment.text}</p>
+            {showDetail1 && (
+              <div className="textDetails-content">
+                {productDetails && productDetails.description}
               </div>
-            ))}
-        </div>
-        <div id="likes">
-          <img
-            src={isLiked ? fullHeart : emptyHeart}
-            alt=""
-            onClick={handleLikeClick}
-          />
-          <h3 id="likesCount">{likes}</h3>
+            )}
+
+            <div className="textDetails">
+              Did you know about it?
+              <button className="toggle-button" onClick={toggleDetail2}>
+                {showDetail2 ? "-" : "+"}
+              </button>
+            </div>
+            {showDetail2 && (
+              <div
+                style={{ fontSize: "30px", margin: "0" }}
+                className="textDetails-content"
+              >
+                {productDetails && productDetails.time} <br />
+                {productDetails && productDetails.distance}
+              </div>
+            )}
+
+            <div className="textDetails">
+              Which type of tour is more popular!?
+              <button className="toggle-button" onClick={toggleDetail3}>
+                {showDetail3 ? "-" : "+"}
+              </button>
+            </div>
+            {showDetail3 && (
+              <div className="textDetails-content">
+                {productDetails && productDetails.description}
+                {productDetails && productDetails.type}
+              </div>
+            )}
+          </div>
+          <div id="likes">
+            <img
+              src={isLiked ? fullHeart : emptyHeart}
+              alt=""
+              onClick={handleLikeClick}
+            />
+            <h3 id="likesCount">{likes}</h3>
+          </div>
+          <form action="" className="comment-form">
+            <textarea
+              type="text"
+              placeholder="comment"
+              value={commentText}
+              onChange={handleCommentChange}
+            />
+            <button onClick={handleAddComment} className="add-comment-btn">
+              Add comment
+            </button>
+          </form>
+          <div className="comments-container">
+            {comments &&
+              comments.map((comment) => (
+                <div key={comment.id} className="comment-block">
+                  <p className="comment-user">{comment.user}</p>
+                  <p className="comment">{comment.text}</p>
+                  {email == !comment.user && (
+                    <button
+                      id="deletecom"
+                      onClick={() => handleDeleteComment(comment.id)}
+                    >
+                      delete
+                    </button>
+                  )}
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </>

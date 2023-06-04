@@ -13,41 +13,41 @@ function Topic() {
   const { email } = useAuth();
   const { id } = useParams();
 
-  const [discussionText, setdiscussionText] = useState("");
-  const [discussion, setdiscussion] = useState([]);
+  const [discussionText, setDiscussionText] = useState("");
+  const [discussion, setDiscussion] = useState([]);
 
-  const handlediscussionChange = (event) => {
-    setdiscussionText(event.target.value);
+  const handleDiscussionChange = (event) => {
+    setDiscussionText(event.target.value);
   };
 
-  const handleAdddiscussion = () => {
-    const newdiscussion = {
+  const handleAddDiscussion = () => {
+    const newDiscussion = {
       id: discussion.length + 1,
       user: email,
       text: discussionText,
       topic: topicDetails.title, // Добавляем название топика к элементу обсуждения
     };
-    setdiscussion([...discussion, newdiscussion]);
-    setdiscussionText("");
+    setDiscussion([...discussion, newDiscussion]);
+    setDiscussionText("");
 
     localStorage.setItem(
       "discussion",
-      JSON.stringify([...discussion, newdiscussion])
+      JSON.stringify([...discussion, newDiscussion])
     );
   };
 
   useEffect(() => {
     getTopicDetails(id);
 
-    const storeddiscussion = localStorage.getItem("discussion");
-    if (storeddiscussion) {
-      setdiscussion(JSON.parse(storeddiscussion));
+    const storedDiscussion = localStorage.getItem("discussion");
+    if (storedDiscussion) {
+      setDiscussion(JSON.parse(storedDiscussion));
     }
   }, [id, getTopicDetails]);
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div
         style={{ marginTop: "400px", marginLeft: "100px" }}
         className="discussion-container"
@@ -58,24 +58,25 @@ function Topic() {
             type="text"
             placeholder="discussion"
             value={discussionText}
-            onChange={(e) => handlediscussionChange(e)}
+            onChange={(e) => handleDiscussionChange(e)}
           />
-          <button onClick={handleAdddiscussion} className="add-discussion-btn">
+          <button onClick={handleAddDiscussion} className="add-discussion-btn">
             Add discussion
           </button>
         </form>
         <div className="discussion-container">
           {discussion &&
-            discussion.map((discussion) => {
-              if (discussion.topic === topicDetails.title) {
+            discussion.map((comment) => {
+              if (comment.topic === topicDetails.title) {
+                // Исправлено: проверяем поле "topic" у каждого комментария
                 return (
-                  <div key={discussion.id} className="discussion-block">
-                    <p className="discussion-user">{discussion.user}</p>
-                    <p className="discussion">{discussion.text}</p>
+                  <div key={comment.id} className="comment-block">
+                    <p className="comment-user">{comment.user}</p>
+                    <p className="comment">{comment.text}</p>
                   </div>
                 );
               } else {
-                return null; // Пропустить элемент, если не относится к текущему топику
+                return null; // Исправлено: добавлено возвращение null, если комментарий не относится к текущей теме
               }
             })}
         </div>
