@@ -25,6 +25,7 @@ function Topic() {
       id: discussion.length + 1,
       user: email,
       text: discussionText,
+      topic: topicDetails.title, // Добавляем название топика к элементу обсуждения
     };
     setdiscussion([...discussion, newdiscussion]);
     setdiscussionText("");
@@ -42,7 +43,7 @@ function Topic() {
     if (storeddiscussion) {
       setdiscussion(JSON.parse(storeddiscussion));
     }
-  }, []);
+  }, [id, getTopicDetails]);
 
   return (
     <>
@@ -65,12 +66,18 @@ function Topic() {
         </form>
         <div className="discussion-container">
           {discussion &&
-            discussion.map((discussion) => (
-              <div key={discussion.id} className="discussion-block">
-                <p className="discussion-user">{discussion.user}</p>
-                <p className="discussion">{discussion.text}</p>
-              </div>
-            ))}
+            discussion.map((discussion) => {
+              if (discussion.topic === topicDetails.title) {
+                return (
+                  <div key={discussion.id} className="discussion-block">
+                    <p className="discussion-user">{discussion.user}</p>
+                    <p className="discussion">{discussion.text}</p>
+                  </div>
+                );
+              } else {
+                return null; // Пропустить элемент, если не относится к текущему топику
+              }
+            })}
         </div>
       </div>
     </>
