@@ -14,7 +14,7 @@
 #inpCont {
   margin-top: 80px;
   width: 50%;
-  height: 80%;
+  /* height: 80%; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -22,6 +22,7 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.388);
 }
+
 #inpCont h1 {
   font-size: 36px;
   margin-top: 6px;
@@ -74,4 +75,12 @@
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
+}
+@media (max-width: 768px) {
+  #inpCont {
+    width: 90%;
+  }
+  .addFood-container button {
+    font-size: 1em;
+  }
 }

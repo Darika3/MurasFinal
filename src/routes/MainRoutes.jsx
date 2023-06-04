@@ -13,11 +13,11 @@ import Tours from "../components/Tours/Tours";
 import Cart from "../components/Cart/Cart";
 import Auth from "../components/Auth/Auth";
 import EditProduct from "../components/Products/Crud/EditProduct";
+
 import MultidaysTour from "../components/Tours/MultidaysTour";
-import TrekkingTours from "../components/Tours/TrekkingTours";
-// import Chat from "../components/Chat/Chat";
 import HorseRiding from "../components/Tours/HorseRiding";
 import FavPage from "../FavPage";
+import TrekkingTours from "../components/Tours/TrekkingTours";
 import BuyNow from "../components/Cart/BuyNow";
 import Forum from "../components/Forum/Forum";
 import Topic from "../components/Forum/Topic";
@@ -32,7 +32,8 @@ const MainRoutes = () => {
 
     { link: "/trek", element: <TrekkingTours />, id: 6 },
     { link: "/multidays", element: <MultidaysTour />, id: 7 },
-    { link: "/horse", element: <HorseRiding/>, id: 16 },
+    { link: "/horse", element: <HorseRiding />, id: 16 },
+
     { link: "/food", element: <ProductFood />, id: 8 },
     { link: "/culture", element: <Culture />, id: 9 },
     { link: "/tours", element: <Tours />, id: 10 },
@@ -45,20 +46,11 @@ const MainRoutes = () => {
     { link: "/forum", element: <Forum />, id: 16 },
     { link: "/topic/:id", element: <Topic />, id: 16 },
   ];
-  const USER_ROUTES = [
-    { link: "/chat", element: <Chat/>, id: 18 },
-  ]
-const user = false;
   return (
     <>
       <Routes>
         {PUBLIC_ROUTES.map((item) => (
           <Route path={item.link} element={item.element} key={item.id} />
-        ))}
-      </Routes>
-      <Routes>
-        {USER_ROUTES.map((item)=>(
-          <Route path={item.link} element = {item.element} exact = {true}/>
         ))}
       </Routes>
     </>
