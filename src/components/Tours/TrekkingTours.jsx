@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import { useProduct } from "../../context/ProductContextProvider";
-import { API } from "../../helpers/const";
+import { ADMIN, API } from "../../helpers/const";
 import starRatingEmpty from "../Products/assetsProducts/starRating.png";
 import starRatingFilled from "../Products/assetsProducts/starRatingFull.png";
 import trekkingToursHeader from "../Products/assetsProducts/trekkingTours.png";
@@ -16,7 +16,8 @@ import phoneIcon from "../Products/assetsProducts/PhoneIcon.svg";
 import "../Tours/Tours.css";
 
 const TrekkingTours = () => {
-  const { getProducts, products, saveEditedProduct } = useProduct();
+  const { getProducts, products, saveEditedProduct, deleteProduct } =
+    useProduct();
   const navigate = useNavigate();
   const {
     user: { email },
@@ -33,7 +34,7 @@ const TrekkingTours = () => {
     };
     await axios.patch(`${API}/${id}`, updatedProduct);
     saveEditedProduct(updatedProduct);
-    window.location.reload(); // Reload the page without navigation
+    window.location.reload(); 
   };
 
   return (
@@ -56,6 +57,22 @@ const TrekkingTours = () => {
               <div className="toursCard" key={item.id}>
                 <img className="toursCardImg" src={item.image} alt="" />
                 <div className="tourInformationCardContiner">
+                  {email === ADMIN ? (
+                    <>
+                      <button
+                        className="updCard-btn"
+                        onClick={() => navigate(`/edit/${item.id}`)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="updCard-btn"
+                        onClick={() => deleteProduct(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </>
+                  ) : null}
                   <h2>{item.name}</h2>
                   <ul className="tourInformationCard">
                     <li>Altitude: {item.altitude}</li>
@@ -78,7 +95,12 @@ const TrekkingTours = () => {
                       />
                     ))}
                   </span>
-                  <button id="detailTour" onClick={()=> navigate("/toursDetails/:id")}>Read More</button>
+                  <button
+                    onClick={() => navigate(`/tourDetails/${item.id}`)}
+                    id="detailTour"
+                  >
+                    Read More
+                  </button>
                 </div>
               </div>
             ) : null

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { API, PRODUCTS } from "../helpers/const";
 
@@ -8,10 +8,9 @@ export const useProduct = () => useContext(productsContext);
 
 const INIT_STATE = {
   products: [],
-  productDetails: [],
-  commentsState: {},
+  productDetails: null,
 };
-// функция reducer
+
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case PRODUCTS.GET_PRODUCTS:
@@ -29,59 +28,57 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  // стягиваем данные
   const getProducts = async () => {
-    const { data } = await axios(`${API}${window.location.search}`);
+    const { data } = await axios.get(`${API}${window.location.search}`);
     dispatch({ type: PRODUCTS.GET_PRODUCTS, payload: data });
   };
 
-  // добавление нового продукта
   const addProduct = async (newProduct) => {
     await axios.post(`${API}`, newProduct);
     navigate("/products");
   };
 
-  // удаление
   const deleteProduct = async (id) => {
     await axios.delete(`${API}/${id}`);
     getProducts();
   };
-  // сохранение изм продукта
+
   const saveEditedProduct = async (newProduct) => {
     await axios.patch(`${API}/${newProduct.id}`, newProduct);
     getProducts();
     navigate("/products");
   };
-  // !tourDetails
+
   const getProductDetails = async (id) => {
-    const { data } = await axios(`${API}${window.location.search}/${id}`);
+    const { data } = await axios.get(`${API}/${id}`);
     dispatch({
       type: PRODUCTS.GET_PRODUCT_DETAILS,
       payload: data,
     });
   };
 
-  function getFilterClothes() {
+  const getFilterClothes = () => {
     return state.products.filter((elem) => elem.category === "clothes");
-  }
-  function getFilterSouvenirs() {
-    return state.products.filter((elem) => elem.category === "souvenirs");
-  }
-  function getFilterFood() {
-    return state.products.filter((elem) => elem.category === "food");
-  }
-  // !filer
-  const location = useLocation();
-  // console.log(location.pathname);
+  };
 
-  const filterByTtype = async (query, value) => {
-    const filter = new URLSearchParams(window.location.filter);
+  const getFilterSouvenirs = () => {
+    return state.products.filter((elem) => elem.category === "souvenirs");
+  };
+
+  const getFilterFood = () => {
+    return state.products.filter((elem) => elem.category === "food");
+  };
+
+  const location = useLocation();
+
+  const filterByType = async (query, value) => {
+    const searchParams = new URLSearchParams(window.location.search);
     if (value === "") {
-      filter.delete(query);
+      searchParams.delete(query);
     } else {
-      filter.set(query, value);
+      searchParams.set(query, value);
     }
-    const url = `${location.pathname}?${filter.toString()}`;
+    const url = `${location.pathname}?${searchParams.toString()}`;
     navigate(url);
   };
   // !Comments
@@ -102,9 +99,7 @@ const ProductContextProvider = ({ children }) => {
     });
   }
   const values = {
-    getComments,
-    setCommentsState,
-    filterByTtype,
+    filterByType,
     getFilterFood,
     getFilterSouvenirs,
     getFilterClothes,
@@ -116,6 +111,11 @@ const ProductContextProvider = ({ children }) => {
     getProductDetails,
     productDetails: state.productDetails,
   };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <productsContext.Provider value={values}>
       {children}

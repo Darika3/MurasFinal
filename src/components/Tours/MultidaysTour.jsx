@@ -13,9 +13,10 @@ import { useProduct } from "../../context/ProductContextProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import "../Tours/Tours.css";
-import { API } from "../../helpers/const";
+import { ADMIN, API } from "../../helpers/const";
 const MultidaysTour = () => {
-  const { getProducts, products, saveEditedProduct } = useProduct();
+  const { getProducts, products, saveEditedProduct, deleteProduct } =
+    useProduct();
   const navigate = useNavigate();
   const {
     user: { email },
@@ -56,6 +57,22 @@ const MultidaysTour = () => {
                 <div className="toursCard" key={item.id}>
                   <img className="toursCardImg" src={item.image} alt="" />
                   <div className="tourInformationCardContiner">
+                    {email === ADMIN ? (
+                      <>
+                        <button
+                          className="updCard-btn"
+                          onClick={() => navigate(`/edit/${item.id}`)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="updCard-btn"
+                          onClick={() => deleteProduct(item.id)}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    ) : null}
                     <h2>{item.name}</h2>
                     <ul className="tourInformationCard">
                       <li>Altitude: {item.altitude}</li>
@@ -78,7 +95,12 @@ const MultidaysTour = () => {
                         />
                       ))}
                     </span>
-                    <button id="detailTour">Read More</button>
+                    <button
+                      onClick={() => navigate(`/tourDetails/${item.id}`)}
+                      id="detailTour"
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               ) : null

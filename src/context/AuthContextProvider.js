@@ -72,7 +72,20 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const resetSentPassword = () => {
-    fire.auth().sendPasswordResetEmail(email);
+    fire
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        // Успешно отправлено
+        console.log("Письмо для сброса пароля отправлено.");
+      })
+      .catch((err) => {
+        // Обработка ошибок
+        console.log(
+          "Ошибка при отправке письма для сброса пароля:",
+          err.message
+        );
+      });
   };
 
   // !

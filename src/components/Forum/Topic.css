@@ -1,0 +1,85 @@
+.discussion-container {
+  /* margin-top: 400px;
+      margin-left: 100px; */
+  background-color: #223c5d;
+  /* height: 100vh; */
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.discussion-container h1 {
+  margin-top: 150px;
+  margin-bottom: 40px;
+  font-size: 2em;
+  width: 40%;
+  height: 20%;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  color: white;
+}
+
+.discussion-form textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 100px;
+  padding: 10px;
+  resize: vertical;
+  /* margin: 0 auto; */
+}
+
+.discussion-form {
+  width: 100%;
+  /* height: 130px; */
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  align-items: center;
+  outline: none;  
+  margin-top: 20px;
+  margin-bottom: 30px;        
+}
+
+.add-discussion-btn {
+  background-color: white;
+  color: #223c5d;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  align-self: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.discussion-block {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.discussion-user {
+  font-weight: bold;
+}
+
+.discussion {
+  margin-top: 5px;
+}
+@media screen and (max-width: 768px) {
+  .discussion-form textarea {
+    max-width: 90%;
+  }
+
+  .add-discussion-btn {
+    width: 90%;
+  }
+}
