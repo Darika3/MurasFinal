@@ -21,7 +21,7 @@ const ProductFood = () => {
 
   const { getProducts, products, pages} = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  const {filterByTtype} = useProduct()
+  const {filterByType} = useProduct()
 
  useEffect(() => {
     getProducts();
@@ -85,9 +85,9 @@ useEffect(() => {
       </div>
       <div id="food" className="product__food_card-container">
         <div  className="item_filter-btn">
-          <button onClick={(e)=>filterByTtype("type", "Meal")} value={"Meal"}>Meal</button>
-          <button onClick={(e)=>filterByTtype("type", "Drinks")} value={"Drinks"}>Drinks</button>
-          <button onClick={(e)=>filterByTtype("type", "Snacks")} value={"Snacks"}>Snacks</button>
+          <button onClick={(e)=>filterByType("type", "Meal")} value={"Meal"}>Meal</button>
+          <button onClick={(e)=>filterByType("type", "Drinks")} value={"Drinks"}>Drinks</button>
+          <button onClick={(e)=>filterByType("type", "Snacks")} value={"Snacks"}>Snacks</button>
         </div>
         <div style= {{display: "flex", flexWrap:"wrap"}}>
         {/* <div 

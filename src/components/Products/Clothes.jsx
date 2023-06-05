@@ -10,16 +10,16 @@ import WhatsApp from "../../assets/image/Wp.svg";
 import { Pagination } from "@mui/material";
 
 import ProductCard from "../Products/ProductCard";
-import { useProduct } from "../../context/ProductContextProvider";
 import { useSearchParams } from "react-router-dom";
 import leftPic from "../Products/assetsProducts/leftClothesF.png";
 import rightPic from "../Products/assetsProducts/rightClothesF.png";
+import { useProduct } from "../../context/ProductContextProvider";
 const Clothes = ({}) => {
   const { products, getProducts, getFilterClothes } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const clothes = getFilterClothes();
 
-  const { filterByTtype } = useProduct();
+  const { filterByType} = useProduct();
   useEffect(() => {
     getProducts();
   }, []);
@@ -97,19 +97,19 @@ const Clothes = ({}) => {
       <div id="clothes" className="product__food_card-container">
         <div className="item_filter-btn">
           <button
-            onClick={(e) => filterByTtype("type", "Outerwear")}
+            onClick={(e) => filterByType("type", "Outerwear")}
             value={"Outerwear"}
           >
             Outerwear
           </button>
           <button
-            onClick={(e) => filterByTtype("type", "Headdress")}
+            onClick={(e) => filterByType("type", "Headdress")}
             value={"Headdress"}
           >
             Headdress
           </button>
           <button
-            onClick={(e) => filterByTtype("type", "Shoes")}
+            onClick={(e) => filterByType("type", "Shoes")}
             value={"Shoes"}
           >
             Shoes

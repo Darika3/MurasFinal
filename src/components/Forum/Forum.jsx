@@ -35,6 +35,7 @@ const Forum = () => {
 
   return (
     <div>
+      <Navbar/>
       <div style={{width:"100%", height:"100vh"}} className="forumContainer">
         <h1>FORUM</h1>
         {topics.map((item) => (

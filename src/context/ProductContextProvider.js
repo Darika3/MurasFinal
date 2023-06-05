@@ -68,7 +68,7 @@ const ProductContextProvider = ({ children }) => {
   const getFilterFood = () => {
     return state.products.filter((elem) => elem.category === "food");
   };
-
+  // filter
   const location = useLocation();
 
   const filterByType = async (query, value) => {
@@ -111,10 +111,6 @@ const ProductContextProvider = ({ children }) => {
     getProductDetails,
     productDetails: state.productDetails,
   };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <productsContext.Provider value={values}>
